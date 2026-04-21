@@ -1,0 +1,273 @@
+import Link from "next/link";
+
+type ContactItem = {
+  label: string;
+  value: string;
+  href?: string;
+};
+
+const contactItems: ContactItem[] = [
+  {
+    label: "Telefone",
+    value: "+351 912 345 678",
+    href: "tel:+351912345678",
+  },
+  {
+    label: "Email",
+    value: "geral@marianadinis.pt",
+    href: "mailto:geral@marianadinis.pt",
+  },
+  {
+    label: "Localização",
+    value: "Portugal",
+  },
+];
+
+const workingSteps = [
+  "Partilha connosco a sua ideia e as necessidades do espaço.",
+  "Analisamos o projeto e definimos a melhor abordagem.",
+  "Apresentamos uma proposta personalizada, alinhada com o objetivo pretendido.",
+];
+
+export default function ContactosPage() {
+  return (
+    <main className="bg-[#f8f6f2] text-neutral-900">
+      <section className="mx-auto max-w-[1200px] px-6 pb-12 pt-8 md:px-8 md:pb-16 md:pt-10">
+        <div className="overflow-hidden rounded-[28px] border border-[#d9cfbf] bg-[#201a16] shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
+          <div className="grid min-h-[500px] md:grid-cols-[1fr_1.05fr]">
+            <div className="flex items-center px-8 py-10 md:px-12 lg:px-16">
+              <div className="max-w-[520px]">
+                <span className="inline-flex rounded-full border border-[#c9a96a]/40 px-4 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-[#d5b57a]">
+                  Contactos
+                </span>
+
+                <h1 className="mt-6 font-serif text-4xl leading-[1.05] text-[#f5e8cf] md:text-6xl">
+                  Vamos falar
+                  <br />
+                  sobre o seu projeto
+                </h1>
+
+                <p className="mt-5 max-w-[470px] text-sm leading-7 text-[#d9d0c5] md:text-base">
+                  Estamos disponíveis para ouvir a sua ideia, compreender as
+                  necessidades do espaço e desenvolver uma solução elegante,
+                  funcional e pensada ao detalhe.
+                </p>
+
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link
+                    href="mailto:geral@marianadinis.pt"
+                    className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-[#c8a96b] px-6 text-sm font-medium text-[#1f1a17] transition hover:bg-[#d7b779]"
+                  >
+                    Enviar email
+                  </Link>
+
+                  <Link
+                    href="tel:+351912345678"
+                    className="inline-flex min-h-[48px] items-center justify-center rounded-full border border-[#d5b57a]/50 px-6 text-sm font-medium text-[#f5e8cf] transition hover:bg-white/5"
+                  >
+                    Ligar agora
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative min-h-[320px] bg-[linear-gradient(135deg,#6f5b4c_0%,#40342d_42%,#d8cdc1_100%)]">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.22),transparent_34%),linear-gradient(180deg,rgba(0,0,0,0.06),rgba(0,0,0,0.18))]" />
+              <div className="absolute inset-x-8 bottom-8 top-8 rounded-[24px] border border-white/15 bg-white/8 backdrop-blur-[1px]" />
+              <div className="absolute left-10 top-14 h-[84px] w-[84px] rounded-full border border-white/20 bg-[#c8a96b]/70" />
+              <div className="absolute right-12 top-16 h-[140px] w-[42%] rounded-[22px] bg-[#2d2420]/80 shadow-2xl" />
+              <div className="absolute left-12 top-[42%] h-[150px] w-[34%] rounded-[22px] bg-[#d2c5b7]/80 shadow-2xl" />
+              <div className="absolute bottom-10 right-10 left-[42%] top-[48%] rounded-[22px] bg-[#604939]/85 shadow-2xl" />
+              <div className="absolute inset-x-[44%] top-[54%] h-[10px] rounded-full bg-[#d6c4a6]/70" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-[1200px] px-6 py-12 md:px-8 md:py-16">
+        <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+          <div className="rounded-[28px] border border-[#e8dece] bg-white p-8 shadow-[0_16px_38px_rgba(0,0,0,0.05)]">
+            <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#b5965d]">
+              Informação de contacto
+            </span>
+
+            <h2 className="mt-4 font-serif text-3xl leading-tight text-[#2c241e]">
+              Fale connosco de forma simples e direta
+            </h2>
+
+            <div className="mt-8 space-y-4">
+              {contactItems.map((item) => (
+                <div
+                  key={item.label}
+                  className="rounded-[20px] border border-[#efe7db] bg-[#f7f3ec] px-5 py-5"
+                >
+                  <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-[#b5965d]">
+                    {item.label}
+                  </p>
+
+                  {item.href ? (
+                    <Link
+                      href={item.href}
+                      className="mt-2 block text-base font-medium text-[#2c241e] transition hover:text-[#b5965d]"
+                    >
+                      {item.value}
+                    </Link>
+                  ) : (
+                    <p className="mt-2 text-base font-medium text-[#2c241e]">
+                      {item.value}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-[28px] border border-[#e8dece] bg-white p-8 shadow-[0_16px_38px_rgba(0,0,0,0.05)]">
+            <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#b5965d]">
+              Pedido de contacto
+            </span>
+
+            <h2 className="mt-4 font-serif text-3xl leading-tight text-[#2c241e]">
+              Envie-nos uma mensagem
+            </h2>
+
+            <p className="mt-4 text-sm leading-7 text-neutral-600 md:text-base">
+              Preencha os dados abaixo e entraremos em contacto consigo com a
+              maior brevidade possível.
+            </p>
+
+            <form className="mt-8 space-y-5">
+              <div className="grid gap-5 md:grid-cols-2">
+                <div>
+                  <label
+                    htmlFor="nome"
+                    className="mb-2 block text-sm font-medium text-[#2c241e]"
+                  >
+                    Nome
+                  </label>
+                  <input
+                    id="nome"
+                    name="nome"
+                    type="text"
+                    className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
+                    placeholder="O seu nome"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="telefone"
+                    className="mb-2 block text-sm font-medium text-[#2c241e]"
+                  >
+                    Telefone
+                  </label>
+                  <input
+                    id="telefone"
+                    name="telefone"
+                    type="tel"
+                    className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
+                    placeholder="O seu contacto"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="email"
+                  className="mb-2 block text-sm font-medium text-[#2c241e]"
+                >
+                  Email
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
+                  placeholder="O seu email"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="assunto"
+                  className="mb-2 block text-sm font-medium text-[#2c241e]"
+                >
+                  Assunto
+                </label>
+                <input
+                  id="assunto"
+                  name="assunto"
+                  type="text"
+                  className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
+                  placeholder="Ex.: Remodelação de cozinha"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="mensagem"
+                  className="mb-2 block text-sm font-medium text-[#2c241e]"
+                >
+                  Mensagem
+                </label>
+                <textarea
+                  id="mensagem"
+                  name="mensagem"
+                  rows={6}
+                  className="w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 py-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
+                  placeholder="Descreva brevemente o seu projeto"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="inline-flex min-h-[50px] items-center justify-center rounded-full bg-[#c8a96b] px-6 text-sm font-medium text-[#1f1a17] transition hover:bg-[#d7b779]"
+              >
+                Enviar pedido
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-[#e8dece] bg-[#f2ede4]">
+        <div className="mx-auto max-w-[1200px] px-6 py-12 md:px-8 md:py-16">
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+              <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#b5965d]">
+                Como trabalhamos
+              </span>
+
+              <h2 className="mt-4 font-serif text-3xl leading-tight text-[#2c241e] md:text-4xl">
+                Um processo próximo, claro e orientado ao detalhe
+              </h2>
+
+              <p className="mt-4 text-sm leading-7 text-neutral-600 md:text-base">
+                Acreditamos numa relação de proximidade com cada cliente, desde o
+                primeiro contacto até à definição da melhor solução para o
+                espaço.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              {workingSteps.map((step, index) => (
+                <div
+                  key={step}
+                  className="flex items-start gap-4 rounded-[20px] border border-[#ded3c2] bg-white px-5 py-5 shadow-[0_10px_24px_rgba(0,0,0,0.04)]"
+                >
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#d9bf8f] text-sm font-medium text-[#b5965d]">
+                    {index + 1}
+                  </div>
+
+                  <p className="text-sm leading-7 text-neutral-700 md:text-base">
+                    {step}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
