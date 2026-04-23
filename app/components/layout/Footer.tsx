@@ -114,10 +114,24 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col gap-3 pt-6 text-xs text-[#9e9386] md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} Mariana Dinis. Todos os direitos reservados.</p>
-          <p className="uppercase tracking-[0.22em] text-[#b59359]">
-            Elegância • Detalhe • Sofisticação
+          <p>
+            © {new Date().getFullYear()} Mariana Dinis. Todos os direitos reservados.
           </p>
+
+          <div className="flex items-center gap-4">
+            <p className="uppercase tracking-[0.22em] text-[#b59359]">
+              Elegância • Detalhe • Sofisticação
+            </p>
+
+            <a
+              href="https://www.creativalcance.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#9e9386] transition-colors hover:text-[#d8bc82]"
+            >
+              Made by <span className="text-[#d8bc82]">CreativAlcance</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>

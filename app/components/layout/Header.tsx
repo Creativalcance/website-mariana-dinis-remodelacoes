@@ -20,12 +20,27 @@ export default function Header() {
       }
     }
 
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setIsMobileMenuOpen(false);
+      }
+    }
+
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
     window.addEventListener("resize", handleResize);
+    window.addEventListener("keydown", handleEscape);
 
     return () => {
+      document.body.style.overflow = "";
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("keydown", handleEscape);
     };
-  }, []);
+  }, [isMobileMenuOpen]);
 
   function toggleMobileMenu() {
     setIsMobileMenuOpen((current) => !current);
@@ -82,45 +97,123 @@ export default function Header() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#d8c39a]/45 bg-white/80 text-[#2a211a] lg:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#d8c39a]/45 bg-[linear-gradient(180deg,rgba(255,255,255,0.95)_0%,rgba(246,238,226,0.95)_100%)] text-[#2a211a] shadow-[0_8px_18px_rgba(0,0,0,0.06)] transition hover:border-[#c8a76b] hover:text-[#b88d3b] lg:hidden"
           aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
           aria-expanded={isMobileMenuOpen}
           aria-controls="mobile-navigation"
           onClick={toggleMobileMenu}
         >
-          <span className="text-lg leading-none">
-            {isMobileMenuOpen ? "✕" : "☰"}
+          <span className="relative block h-4 w-4">
+            <span
+              className={`absolute left-0 top-0 h-[1.5px] w-4 rounded-full bg-current transition-all duration-300 ${
+                isMobileMenuOpen ? "top-[7px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`absolute left-0 top-[7px] h-[1.5px] w-4 rounded-full bg-current transition-all duration-300 ${
+                isMobileMenuOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`absolute left-0 top-[14px] h-[1.5px] w-4 rounded-full bg-current transition-all duration-300 ${
+                isMobileMenuOpen ? "top-[7px] -rotate-45" : ""
+              }`}
+            />
           </span>
         </button>
       </div>
 
-      {isMobileMenuOpen ? (
-        <div
-          id="mobile-navigation"
-          className="border-t border-[#d8c39a]/25 bg-[rgba(255,251,245,0.98)] px-6 pb-6 pt-4 lg:hidden"
-        >
+      <div
+        className={`fixed inset-0 z-40 bg-[rgba(23,18,15,0.32)] backdrop-blur-[2px] transition-all duration-300 lg:hidden ${
+          isMobileMenuOpen
+            ? "pointer-events-auto opacity-100"
+            : "pointer-events-none opacity-0"
+        }`}
+        onClick={closeMobileMenu}
+        aria-hidden={!isMobileMenuOpen}
+      />
+
+      <div
+        id="mobile-navigation"
+        className={`fixed right-0 top-0 z-50 h-screen w-full max-w-[380px] border-l border-[#d8c39a]/20 bg-[linear-gradient(180deg,#1f1813_0%,#17120f_100%)] shadow-[0_30px_80px_rgba(0,0,0,0.35)] transition-transform duration-300 ease-out lg:hidden ${
+          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex items-center justify-between border-b border-[#cba96a]/12 px-6 py-5">
+          <div className="flex items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#d8c39a]/35 bg-[linear-gradient(180deg,#3a2d22_0%,#1f1813_100%)]">
+              <span className="font-serif text-base text-[#e4c98f]">MD</span>
+            </div>
+
+            <div className="flex flex-col">
+              <span className="font-serif text-lg leading-none text-[#f6ead1]">
+                Mariana Dinis
+              </span>
+              <span className="mt-1 text-[10px] uppercase tracking-[0.28em] text-[#c8a76b]">
+                Remodelações
+              </span>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            onClick={closeMobileMenu}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#d8c39a]/20 bg-white/5 text-[#f6ead1] transition hover:border-[#c8a76b] hover:text-[#d8bc82]"
+            aria-label="Fechar menu"
+          >
+            ✕
+          </button>
+        </div>
+
+        <div className="flex h-[calc(100vh-81px)] flex-col justify-between px-6 py-6">
           <nav className="flex flex-col gap-2">
-            {navigation.map((item) => (
+            {navigation.map((item, index) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={closeMobileMenu}
-                className="rounded-[18px] border border-[#e7dac0] bg-white/70 px-4 py-3 text-[12px] font-semibold uppercase tracking-[0.2em] text-[#5f5348] transition-colors duration-300 hover:text-[#b88d3b]"
+                className="group flex items-center justify-between rounded-[22px] border border-[#cba96a]/10 bg-white/[0.03] px-5 py-4 transition duration-300 hover:border-[#cba96a]/25 hover:bg-white/[0.06]"
               >
-                {item.label}
+                <div className="flex items-center gap-4">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full border border-[#cba96a]/18 text-[11px] font-medium text-[#c8a76b]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-serif text-xl text-[#f6ead1] transition-colors group-hover:text-[#d8bc82]">
+                    {item.label}
+                  </span>
+                </div>
+
+                <span className="text-[#8f7e67] transition-colors group-hover:text-[#d8bc82]">
+                  →
+                </span>
               </Link>
             ))}
+          </nav>
+
+          <div className="mt-8 rounded-[28px] border border-[#cba96a]/14 bg-[radial-gradient(circle_at_top,rgba(209,171,95,0.14),rgba(255,255,255,0.03)_42%)] p-6">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-[#c8a76b]">
+              Novo projeto
+            </span>
+
+            <h3 className="mt-3 font-serif text-2xl leading-tight text-[#f6ead1]">
+              Vamos criar algo único para o seu espaço
+            </h3>
+
+            <p className="mt-3 text-sm leading-7 text-[#cfc5b8]">
+              Peça uma proposta personalizada com uma abordagem elegante,
+              funcional e pensada ao detalhe.
+            </p>
 
             <Link
               href="/orcamento"
               onClick={closeMobileMenu}
-              className="mt-2 inline-flex min-h-[46px] items-center justify-center rounded-full border border-[#cfb279] bg-[linear-gradient(180deg,#d8bc82_0%,#b88d3b_100%)] px-6 text-[12px] font-semibold uppercase tracking-[0.22em] text-[#1f1813] shadow-[0_14px_30px_rgba(184,141,59,0.18)] transition duration-300"
+              className="mt-5 inline-flex min-h-[48px] w-full items-center justify-center rounded-full border border-[#cfb279] bg-[linear-gradient(180deg,#d8bc82_0%,#b88d3b_100%)] px-6 text-[12px] font-semibold uppercase tracking-[0.22em] text-[#1f1813] shadow-[0_16px_30px_rgba(184,141,59,0.18)] transition duration-300 hover:translate-y-[-1px] hover:shadow-[0_20px_34px_rgba(184,141,59,0.24)]"
             >
               Pedir orçamento
             </Link>
-          </nav>
+          </div>
         </div>
-      ) : null}
+      </div>
     </header>
   );
 }
