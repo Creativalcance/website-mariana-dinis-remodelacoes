@@ -192,7 +192,7 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="mt-3 rounded-[22px] border border-[#cba96a]/14 bg-[radial-gradient(circle_at_top,rgba(209,171,95,0.14),rgba(255,255,255,0.03)_42%)] p-4">
+          <div className="mt-1 rounded-[22px] border border-[#cba96a]/14 bg-[radial-gradient(circle_at_top,rgba(209,171,95,0.14),rgba(255,255,255,0.03)_42%)] p-4">
             <span className="text-[8px] uppercase tracking-[0.24em] text-[#c8a76b]">
               Novo projeto
             </span>
