@@ -135,23 +135,23 @@ export default function Header() {
 
       <div
         id="mobile-navigation"
-        className={`fixed right-0 top-0 z-50 h-screen w-full max-w-[380px] overflow-y-auto border-l border-[#d8c39a]/20 bg-[linear-gradient(180deg,#1f1813_0%,#17120f_100%)] shadow-[0_30px_80px_rgba(0,0,0,0.35)] transition-transform duration-300 ease-out lg:hidden ${
+        className={`fixed right-0 top-0 z-50 h-screen w-full max-w-[360px] border-l border-[#d8c39a]/20 bg-[linear-gradient(180deg,#1f1813_0%,#17120f_100%)] shadow-[0_30px_80px_rgba(0,0,0,0.35)] transition-transform duration-300 ease-out lg:hidden ${
           isMobileMenuOpen
             ? "pointer-events-auto translate-x-0"
             : "pointer-events-none translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between border-b border-[#cba96a]/12 px-6 py-5">
+        <div className="flex items-center justify-between border-b border-[#cba96a]/12 px-5 py-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#d8c39a]/35 bg-[linear-gradient(180deg,#3a2d22_0%,#1f1813_100%)]">
-              <span className="font-serif text-base text-[#e4c98f]">MD</span>
+            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d8c39a]/35 bg-[linear-gradient(180deg,#3a2d22_0%,#1f1813_100%)]">
+              <span className="font-serif text-sm text-[#e4c98f]">MD</span>
             </div>
 
             <div className="flex flex-col">
-              <span className="font-serif text-lg leading-none text-[#f6ead1]">
+              <span className="font-serif text-base leading-none text-[#f6ead1]">
                 Mariana Dinis
               </span>
-              <span className="mt-1 text-[10px] uppercase tracking-[0.28em] text-[#c8a76b]">
+              <span className="mt-1 text-[9px] uppercase tracking-[0.24em] text-[#c8a76b]">
                 Remodelações
               </span>
             </div>
@@ -160,27 +160,27 @@ export default function Header() {
           <button
             type="button"
             onClick={closeMobileMenu}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#d8c39a]/20 bg-white/5 text-[#f6ead1] transition hover:border-[#c8a76b] hover:text-[#d8bc82]"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#d8c39a]/20 bg-white/5 text-[#f6ead1] transition hover:border-[#c8a76b] hover:text-[#d8bc82]"
             aria-label="Fechar menu"
           >
             ✕
           </button>
         </div>
 
-        <div className="flex h-[calc(100vh-81px)] flex-col justify-between px-6 py-6">
+        <div className="flex h-[calc(100vh-72px)] flex-col justify-between px-5 py-4">
           <nav className="flex flex-col gap-2">
             {navigation.map((item, index) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={closeMobileMenu}
-                className="group flex items-center justify-between rounded-[22px] border border-[#cba96a]/10 bg-white/[0.03] px-5 py-4 transition duration-300 hover:border-[#cba96a]/25 hover:bg-white/[0.06]"
+                className="group flex items-center justify-between rounded-[20px] border border-[#cba96a]/10 bg-white/[0.03] px-4 py-3 transition duration-300 hover:border-[#cba96a]/25 hover:bg-white/[0.06]"
               >
-                <div className="flex items-center gap-4">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full border border-[#cba96a]/18 text-[11px] font-medium text-[#c8a76b]">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[#cba96a]/18 text-[10px] font-medium text-[#c8a76b]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className="font-serif text-xl text-[#f6ead1] transition-colors group-hover:text-[#d8bc82]">
+                  <span className="font-serif text-lg text-[#f6ead1] transition-colors group-hover:text-[#d8bc82]">
                     {item.label}
                   </span>
                 </div>
@@ -192,16 +192,16 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="mt-8 rounded-[28px] border border-[#cba96a]/14 bg-[radial-gradient(circle_at_top,rgba(209,171,95,0.14),rgba(255,255,255,0.03)_42%)] p-6">
-            <span className="text-[10px] uppercase tracking-[0.3em] text-[#c8a76b]">
+          <div className="mt-5 rounded-[24px] border border-[#cba96a]/14 bg-[radial-gradient(circle_at_top,rgba(209,171,95,0.14),rgba(255,255,255,0.03)_42%)] p-5">
+            <span className="text-[9px] uppercase tracking-[0.26em] text-[#c8a76b]">
               Novo projeto
             </span>
 
-            <h3 className="mt-3 font-serif text-2xl leading-tight text-[#f6ead1]">
+            <h3 className="mt-2 font-serif text-xl leading-tight text-[#f6ead1]">
               Vamos criar algo único para o seu espaço
             </h3>
 
-            <p className="mt-3 text-sm leading-7 text-[#cfc5b8]">
+            <p className="mt-2 text-sm leading-6 text-[#cfc5b8]">
               Peça uma proposta personalizada com uma abordagem elegante,
               funcional e pensada ao detalhe.
             </p>
@@ -209,7 +209,7 @@ export default function Header() {
             <Link
               href="/orcamento"
               onClick={closeMobileMenu}
-              className="mt-5 inline-flex min-h-[48px] w-full items-center justify-center rounded-full border border-[#cfb279] bg-[linear-gradient(180deg,#d8bc82_0%,#b88d3b_100%)] px-6 text-[12px] font-semibold uppercase tracking-[0.22em] text-[#1f1813] shadow-[0_16px_30px_rgba(184,141,59,0.18)] transition duration-300 hover:translate-y-[-1px] hover:shadow-[0_20px_34px_rgba(184,141,59,0.24)]"
+              className="mt-4 inline-flex min-h-[44px] w-full items-center justify-center rounded-full border border-[#cfb279] bg-[linear-gradient(180deg,#d8bc82_0%,#b88d3b_100%)] px-5 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#1f1813] shadow-[0_16px_30px_rgba(184,141,59,0.18)] transition duration-300 hover:translate-y-[-1px] hover:shadow-[0_20px_34px_rgba(184,141,59,0.24)]"
             >
               Pedir orçamento
             </Link>
