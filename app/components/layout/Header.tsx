@@ -135,13 +135,13 @@ export default function Header() {
 
       <div
         id="mobile-navigation"
-        className={`fixed right-0 top-0 z-50 h-screen w-full max-w-[360px] border-l border-[#d8c39a]/20 bg-[linear-gradient(180deg,#1f1813_0%,#17120f_100%)] shadow-[0_30px_80px_rgba(0,0,0,0.35)] transition-transform duration-300 ease-out lg:hidden ${
+        className={`fixed right-0 top-0 z-50 h-screen w-full max-w-[380px] border-l border-[#d8c39a]/20 bg-[linear-gradient(180deg,#1f1813_0%,#17120f_100%)] shadow-[0_30px_80px_rgba(0,0,0,0.35)] transition-transform duration-300 ease-out lg:hidden ${
           isMobileMenuOpen
             ? "pointer-events-auto translate-x-0"
             : "pointer-events-none translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between border-b border-[#cba96a]/12 px-5 py-4">
+        <div className="flex items-center justify-between border-b border-[#cba96a]/12 px-6 py-4">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d8c39a]/35 bg-[linear-gradient(180deg,#3a2d22_0%,#1f1813_100%)]">
               <span className="font-serif text-sm text-[#e4c98f]">MD</span>
@@ -167,41 +167,41 @@ export default function Header() {
           </button>
         </div>
 
-        <div className="flex h-[calc(100vh-72px)] flex-col justify-between px-5 py-4">
-          <nav className="flex flex-col gap-2">
+        <div className="flex h-[calc(100vh-73px)] flex-col justify-between px-4 py-3">
+          <nav className="flex flex-col gap-1.5">
             {navigation.map((item, index) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={closeMobileMenu}
-                className="group flex items-center justify-between rounded-[20px] border border-[#cba96a]/10 bg-white/[0.03] px-4 py-3 transition duration-300 hover:border-[#cba96a]/25 hover:bg-white/[0.06]"
+                className="group flex items-center justify-between rounded-[18px] border border-[#cba96a]/10 bg-white/[0.03] px-4 py-2.5 transition duration-300 hover:border-[#cba96a]/25 hover:bg-white/[0.06]"
               >
                 <div className="flex items-center gap-3">
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[#cba96a]/18 text-[10px] font-medium text-[#c8a76b]">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[#cba96a]/18 text-[9px] font-medium text-[#c8a76b]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className="font-serif text-lg text-[#f6ead1] transition-colors group-hover:text-[#d8bc82]">
+                  <span className="font-serif text-[1rem] leading-none text-[#f6ead1] transition-colors group-hover:text-[#d8bc82]">
                     {item.label}
                   </span>
                 </div>
 
-                <span className="text-[#8f7e67] transition-colors group-hover:text-[#d8bc82]">
+                <span className="text-sm leading-none text-[#8f7e67] transition-colors group-hover:text-[#d8bc82]">
                   →
                 </span>
               </Link>
             ))}
           </nav>
 
-          <div className="mt-5 rounded-[24px] border border-[#cba96a]/14 bg-[radial-gradient(circle_at_top,rgba(209,171,95,0.14),rgba(255,255,255,0.03)_42%)] p-5">
-            <span className="text-[9px] uppercase tracking-[0.26em] text-[#c8a76b]">
+          <div className="mt-3 rounded-[22px] border border-[#cba96a]/14 bg-[radial-gradient(circle_at_top,rgba(209,171,95,0.14),rgba(255,255,255,0.03)_42%)] p-4">
+            <span className="text-[8px] uppercase tracking-[0.24em] text-[#c8a76b]">
               Novo projeto
             </span>
 
-            <h3 className="mt-2 font-serif text-xl leading-tight text-[#f6ead1]">
+            <h3 className="mt-2 font-serif text-lg leading-tight text-[#f6ead1]">
               Vamos criar algo único para o seu espaço
             </h3>
 
-            <p className="mt-2 text-sm leading-6 text-[#cfc5b8]">
+            <p className="mt-2 text-[13px] leading-5 text-[#cfc5b8]">
               Peça uma proposta personalizada com uma abordagem elegante,
               funcional e pensada ao detalhe.
             </p>
@@ -209,7 +209,7 @@ export default function Header() {
             <Link
               href="/orcamento"
               onClick={closeMobileMenu}
-              className="mt-4 inline-flex min-h-[44px] w-full items-center justify-center rounded-full border border-[#cfb279] bg-[linear-gradient(180deg,#d8bc82_0%,#b88d3b_100%)] px-5 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#1f1813] shadow-[0_16px_30px_rgba(184,141,59,0.18)] transition duration-300 hover:translate-y-[-1px] hover:shadow-[0_20px_34px_rgba(184,141,59,0.24)]"
+              className="mt-3 inline-flex min-h-[42px] w-full items-center justify-center rounded-full border border-[#cfb279] bg-[linear-gradient(180deg,#d8bc82_0%,#b88d3b_100%)] px-5 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#1f1813] shadow-[0_16px_30px_rgba(184,141,59,0.18)] transition duration-300 hover:translate-y-[-1px] hover:shadow-[0_20px_34px_rgba(184,141,59,0.24)]"
             >
               Pedir orçamento
             </Link>
