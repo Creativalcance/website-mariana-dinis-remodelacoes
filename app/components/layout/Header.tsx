@@ -135,7 +135,7 @@ export default function Header() {
 
       <div
         id="mobile-navigation"
-        className={`fixed right-0 top-0 z-50 h-screen w-full max-w-[380px] border-l border-[#d8c39a]/20 bg-[linear-gradient(180deg,#1f1813_0%,#17120f_100%)] shadow-[0_30px_80px_rgba(0,0,0,0.35)] transition-transform duration-300 ease-out lg:hidden ${
+        className={`fixed right-0 top-0 z-50 h-screen w-full max-w-[380px] overflow-y-auto border-l border-[#d8c39a]/20 bg-[linear-gradient(180deg,#1f1813_0%,#17120f_100%)] shadow-[0_30px_80px_rgba(0,0,0,0.35)] transition-transform duration-300 ease-out lg:hidden ${
           isMobileMenuOpen
             ? "pointer-events-auto translate-x-0"
             : "pointer-events-none translate-x-full"
