@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type FeatureItem = {
@@ -8,6 +9,8 @@ type FeatureItem = {
 type ProjectCard = {
   title: string;
   category: string;
+  image: string;
+  alt: string;
 };
 
 const features: FeatureItem[] = [
@@ -32,14 +35,20 @@ const projects: ProjectCard[] = [
   {
     title: "Cozinhas por Medida",
     category: "Design funcional",
+    image: "/images/home/Cozinhas_premium_modernas_2.png",
+    alt: "Cozinha premium moderna por medida",
   },
   {
     title: "Roupeiros Elegantes",
     category: "Arrumação integrada",
+    image: "/images/home/Roupeiros_quentes_premium_2.png",
+    alt: "Roupeiro elegante com acabamento premium",
   },
   {
     title: "Interiores Harmoniosos",
     category: "Remodelação premium",
+    image: "/images/home/Closet_elegante_paleta_azul_noite.png",
+    alt: "Closet elegante com paleta azul noite",
   },
 ];
 
@@ -91,14 +100,16 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="relative min-h-[320px] bg-[linear-gradient(135deg,#6a5647_0%,#4b3b30_35%,#d7cabd_100%)]">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.22),transparent_32%),linear-gradient(180deg,rgba(0,0,0,0.08),rgba(0,0,0,0.18))]" />
-              <div className="absolute inset-x-8 bottom-8 top-8 rounded-[24px] border border-white/15 bg-white/8 backdrop-blur-[1px]" />
-              <div className="absolute left-10 right-10 top-12 h-8 rounded-md bg-[#8f7967]/70" />
-              <div className="absolute left-10 top-28 h-[160px] w-[28%] rounded-[18px] bg-[#2f2622]/80 shadow-2xl" />
-              <div className="absolute bottom-10 left-[34%] right-12 top-[38%] rounded-[22px] bg-[#5c4638]/85 shadow-2xl" />
-              <div className="absolute inset-x-[38%] top-[46%] h-[10px] rounded-full bg-[#d6c4a6]/70" />
-              <div className="absolute right-12 top-24 h-[250px] w-[24%] rounded-[18px] bg-[#d3c6b9]/80" />
+            <div className="relative min-h-[320px] overflow-hidden">
+              <Image
+                src="/images/home/Cozinhas_premium_modernas_4.png"
+                alt="Cozinha premium moderna com ilha central"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(31,26,23,0.28)_0%,rgba(31,26,23,0.05)_45%,rgba(31,26,23,0.16)_100%)]" />
             </div>
           </div>
         </div>
@@ -128,7 +139,15 @@ export default function HomePage() {
                 key={project.title}
                 className="overflow-hidden rounded-[22px] border border-[#e8dece] bg-white shadow-[0_12px_30px_rgba(0,0,0,0.05)]"
               >
-                <div className="h-[190px] bg-[linear-gradient(135deg,#ece6dd_0%,#cdbda8_45%,#907562_100%)]" />
+                <div className="relative h-[190px] overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1200px) 33vw, 260px"
+                    className="object-cover transition duration-500 hover:scale-105"
+                  />
+                </div>
                 <div className="p-4">
                   <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-[#b5965d]">
                     {project.category}
@@ -203,7 +222,15 @@ export default function HomePage() {
 
           <div className="overflow-hidden rounded-[28px] border border-[#e8dece] bg-white shadow-[0_16px_38px_rgba(0,0,0,0.05)]">
             <div className="grid h-full md:grid-rows-[1.2fr_0.8fr]">
-              <div className="min-h-[280px] bg-[linear-gradient(135deg,#eae2d7_0%,#b5977f_42%,#7b5f4d_100%)]" />
+              <div className="relative min-h-[280px]">
+                <Image
+                  src="/images/home/Processo_rigoroso_cozinha.png"
+                  alt="Processo rigoroso de remodelação de cozinha"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
               <div className="grid gap-4 p-6 sm:grid-cols-2">
                 <div className="rounded-[20px] bg-[#f7f3ec] p-5">
                   <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-[#b5965d]">

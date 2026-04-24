@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type KitchenFeature = {
@@ -8,6 +9,8 @@ type KitchenFeature = {
 type KitchenProject = {
   title: string;
   subtitle: string;
+  image: string;
+  alt: string;
 };
 
 const kitchenFeatures: KitchenFeature[] = [
@@ -32,14 +35,20 @@ const kitchenProjects: KitchenProject[] = [
   {
     title: "Cozinha Contemporânea",
     subtitle: "Linhas depuradas e materiais quentes",
+    image: "/images/cozinhas/Cozinha_contemporanea.png",
+    alt: "Cozinha contemporânea com materiais quentes",
   },
   {
     title: "Cozinha Minimalista",
     subtitle: "Equilíbrio entre simplicidade e requinte",
+    image: "/images/cozinhas/Cozinha_minimalista.png",
+    alt: "Cozinha minimalista com acabamento premium",
   },
   {
     title: "Cozinha Familiar",
     subtitle: "Espaço funcional para viver e partilhar",
+    image: "/images/cozinhas/Cozinha_familiar.png",
+    alt: "Cozinha familiar moderna e funcional",
   },
 ];
 
@@ -92,15 +101,16 @@ export default function CozinhasPage() {
               </div>
             </div>
 
-            <div className="relative min-h-[320px] bg-[linear-gradient(135deg,#6f5b4c_0%,#3f3129_42%,#d8cdc1_100%)]">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.22),transparent_34%),linear-gradient(180deg,rgba(0,0,0,0.06),rgba(0,0,0,0.18))]" />
-              <div className="absolute inset-x-8 bottom-8 top-8 rounded-[24px] border border-white/15 bg-white/8 backdrop-blur-[1px]" />
-              <div className="absolute left-10 right-10 top-12 h-7 rounded-md bg-[#8c7663]/70" />
-              <div className="absolute left-10 top-24 h-[220px] w-[22%] rounded-[18px] bg-[#2d2420]/85 shadow-2xl" />
-              <div className="absolute bottom-10 left-[28%] right-12 top-[42%] rounded-[22px] bg-[#604939]/85 shadow-2xl" />
-              <div className="absolute inset-x-[34%] top-[48%] h-[10px] rounded-full bg-[#d6c4a6]/70" />
-              <div className="absolute right-12 top-24 h-[250px] w-[25%] rounded-[18px] bg-[#d2c5b7]/85" />
-              <div className="absolute right-[31%] top-[28%] h-10 w-10 rounded-full bg-[#d3b47a]/70 blur-[1px]" />
+            <div className="relative min-h-[320px] overflow-hidden">
+              <Image
+                src="/images/cozinhas/Cozinha_hero.png"
+                alt="Cozinha premium por medida"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(32,26,22,0.12)_0%,rgba(32,26,22,0.02)_45%,rgba(32,26,22,0.16)_100%)]" />
             </div>
           </div>
         </div>
@@ -130,7 +140,15 @@ export default function CozinhasPage() {
                 key={project.title}
                 className="overflow-hidden rounded-[22px] border border-[#e8dece] bg-white shadow-[0_12px_30px_rgba(0,0,0,0.05)]"
               >
-                <div className="h-[210px] bg-[linear-gradient(135deg,#efe7de_0%,#ccbca6_45%,#8c715d_100%)]" />
+                <div className="relative h-[210px] overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1200px) 33vw, 260px"
+                    className="object-cover transition duration-500 hover:scale-105"
+                  />
+                </div>
                 <div className="p-4">
                   <h3 className="font-serif text-xl text-[#2c241e]">
                     {project.title}
@@ -173,7 +191,15 @@ export default function CozinhasPage() {
       <section className="mx-auto max-w-[1200px] px-6 py-12 md:px-8 md:py-16">
         <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="overflow-hidden rounded-[28px] border border-[#e8dece] bg-white shadow-[0_16px_38px_rgba(0,0,0,0.05)]">
-            <div className="min-h-[320px] bg-[linear-gradient(135deg,#e9e1d6_0%,#c8b197_42%,#6e5444_100%)]" />
+            <div className="relative min-h-[320px]">
+              <Image
+                src="/images/cozinhas/Processo_rigoroso_cozinha.png"
+                alt="Processo rigoroso cozinha"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
           </div>
 
           <div className="rounded-[28px] border border-[#e8dece] bg-white p-8 shadow-[0_16px_38px_rgba(0,0,0,0.05)]">

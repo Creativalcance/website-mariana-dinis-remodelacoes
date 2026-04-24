@@ -12,51 +12,56 @@ type ProjectHighlight = {
 };
 
 const featuredProject: ProjectHighlight = {
-  id: "cozinha-alto-padrao",
+  id: "cozinha-contemporanea-premium",
   title: "Cozinha contemporânea com acabamentos premium",
   category: "Cozinhas",
-  image: "/images/projetos/projeto-destaque.jpg",
-  alt: "Projeto de cozinha contemporânea com ilha central e acabamentos premium",
-  detail: "Pormenor de destaque: ilha central, iluminação embutida e textura natural.",
+  image: "/images/projetos/Cozinha_contemporanea_premium.png",
+  alt: "Projeto de cozinha contemporânea com acabamentos premium",
+  detail:
+    "Pormenor de destaque: linhas depuradas, materiais nobres e composição visual sofisticada.",
   year: "2026",
 };
 
 const projects: ProjectHighlight[] = [
   {
-    id: "roupeiro-elegante",
-    title: "Roupeiro integrado com linhas minimalistas",
+    id: "closet-detalhe-textura",
+    title: "Closet elegante com detalhe e textura",
     category: "Roupeiros",
-    image: "/images/projetos/projeto-01.jpg",
-    alt: "Roupeiro integrado com acabamento elegante e portas minimalistas",
-    detail: "Pormenor de destaque: integração total na parede e ferragens discretas.",
+    image: "/images/projetos/Closet_detalhe_e_textura.png",
+    alt: "Closet elegante com detalhe de materiais e textura",
+    detail:
+      "Pormenor de destaque: organização premium, textura visual e acabamento cuidado.",
     year: "2026",
   },
   {
-    id: "cozinha-madeira-clara",
-    title: "Cozinha luminosa com tons quentes",
+    id: "cozinha-luminosa",
+    title: "Cozinha luminosa com equilíbrio funcional",
     category: "Cozinhas",
-    image: "/images/projetos/projeto-02.jpg",
-    alt: "Cozinha luminosa com madeira clara e bancada elegante",
-    detail: "Pormenor de destaque: conjugação de madeira, pedra e luz natural.",
-    year: "2025",
+    image: "/images/projetos/Cozinha_luminosa.png",
+    alt: "Cozinha luminosa com ambiente funcional e elegante",
+    detail:
+      "Pormenor de destaque: luz natural, fluidez de circulação e integração dos materiais.",
+    year: "2026",
   },
   {
-    id: "roupeiro-premium",
-    title: "Closet com organização premium",
+    id: "cozinha-minimalista",
+    title: "Cozinha minimalista com presença sofisticada",
+    category: "Cozinhas",
+    image: "/images/projetos/Cozinha_minimalista.png",
+    alt: "Cozinha minimalista com acabamento sofisticado",
+    detail:
+      "Pormenor de destaque: simplicidade formal, proporções equilibradas e acabamento premium.",
+    year: "2026",
+  },
+  {
+    id: "roupeiro-integrado",
+    title: "Roupeiro integrado com linhas elegantes",
     category: "Roupeiros",
-    image: "/images/projetos/projeto-03.jpg",
-    alt: "Closet com organização premium e detalhe interior refinado",
-    detail: "Pormenor de destaque: compartimentação interior e acabamento sofisticado.",
-    year: "2025",
-  },
-  {
-    id: "interior-elegante",
-    title: "Ambiente interior com detalhe e textura",
-    category: "Interiores",
-    image: "/images/projetos/projeto-04.jpg",
-    alt: "Espaço interior elegante com detalhe de materiais e texturas",
-    detail: "Pormenor de destaque: equilíbrio entre materiais nobres e leveza visual.",
-    year: "2024",
+    image: "/images/projetos/Roupeiro_integrado.png",
+    alt: "Roupeiro integrado com linhas elegantes",
+    detail:
+      "Pormenor de destaque: integração no espaço, arrumação discreta e continuidade visual.",
+    year: "2026",
   },
 ];
 
@@ -76,6 +81,7 @@ function ProjectImage({
         alt={alt}
         fill
         priority={priority}
+        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 640px"
         className="object-cover"
       />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.04)_0%,rgba(0,0,0,0.18)_100%)]" />
@@ -92,21 +98,21 @@ export default function ProjetosPage() {
             <div className="flex items-center px-8 py-10 md:px-12 lg:px-16">
               <div className="max-w-[520px]">
                 <span className="inline-flex rounded-full border border-[#c9a96a]/40 px-4 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-[#d5b57a]">
-                  Ver projetos
+                  Portefólio
                 </span>
 
                 <h1 className="mt-6 font-serif text-4xl leading-[1.05] text-[#f5e8cf] md:text-6xl">
                   Projetos com
                   <br />
-                  imagem, detalhe
+                  detalhe, textura
                   <br />
-                  e presença
+                  e identidade
                 </h1>
 
                 <p className="mt-5 max-w-[480px] text-sm leading-7 text-[#d9d0c5] md:text-base">
-                  Uma seleção visual de projetos pensados ao detalhe, onde a
-                  fotografia assume um papel central para evidenciar materiais,
-                  proporções, texturas e pormenores de destaque.
+                  Uma seleção de ambientes desenvolvidos com atenção ao detalhe,
+                  onde cozinhas, roupeiros e interiores são pensados para unir
+                  estética, funcionalidade e sofisticação.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
@@ -161,41 +167,41 @@ export default function ProjetosPage() {
         <div className="grid gap-8 md:grid-cols-3">
           <div className="rounded-[24px] border border-[#e8dece] bg-white p-6 shadow-[0_10px_24px_rgba(0,0,0,0.04)]">
             <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#b5965d]">
-              Fotografia premium
+              Cozinhas por medida
             </span>
             <h2 className="mt-4 font-serif text-2xl text-[#2c241e]">
-              Imagens com protagonismo
+              Ambientes funcionais e sofisticados
             </h2>
             <p className="mt-3 text-sm leading-7 text-neutral-600">
-              Esta página foi pensada para valorizar fotografias em grande
-              formato, com enquadramentos limpos e foco total na qualidade
-              visual.
+              Projetos pensados para cozinhar, receber e viver, com soluções à
+              medida, materiais elegantes e uma organização adaptada ao dia a
+              dia.
             </p>
           </div>
 
           <div className="rounded-[24px] border border-[#e8dece] bg-white p-6 shadow-[0_10px_24px_rgba(0,0,0,0.04)]">
             <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#b5965d]">
-              Pormenores
+              Roupeiros e closets
             </span>
             <h2 className="mt-4 font-serif text-2xl text-[#2c241e]">
-              Destaques que contam a história
+              Arrumação integrada com elegância
             </h2>
             <p className="mt-3 text-sm leading-7 text-neutral-600">
-              Cada projeto mostra também o detalhe que o distingue: materiais,
-              união entre peças, iluminação, textura e execução.
+              Soluções de arrumação desenhadas para valorizar o espaço, com
+              interiores funcionais, integração discreta e acabamentos premium.
             </p>
           </div>
 
           <div className="rounded-[24px] border border-[#e8dece] bg-white p-6 shadow-[0_10px_24px_rgba(0,0,0,0.04)]">
             <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#b5965d]">
-              Estrutura visual
+              Detalhe e execução
             </span>
             <h2 className="mt-4 font-serif text-2xl text-[#2c241e]">
-              Galeria preparada para crescer
+              Acabamentos que definem o projeto
             </h2>
             <p className="mt-3 text-sm leading-7 text-neutral-600">
-              O layout está pronto para receber mais projetos e fotografias HD,
-              mantendo consistência visual e leitura premium.
+              Cada imagem evidencia proporções, texturas, iluminação e detalhes
+              construtivos que traduzem rigor, qualidade e identidade visual.
             </p>
           </div>
         </div>
@@ -208,13 +214,14 @@ export default function ProjetosPage() {
               Galeria de projetos
             </span>
             <h2 className="mt-4 font-serif text-3xl leading-tight text-[#2c241e] md:text-4xl">
-              Fotografias amplas com detalhe em destaque
+              Cozinhas, roupeiros e interiores com detalhe premium
             </h2>
           </div>
 
           <p className="hidden max-w-[420px] text-sm leading-7 text-neutral-600 lg:block">
-            Substitui as imagens de placeholder por fotografias reais em alta
-            definição dentro de <span className="font-medium">/public/images/projetos</span>.
+            Uma seleção visual orientada para destacar soluções à medida,
+            qualidade de execução, materiais e pormenores que transformam cada
+            espaço.
           </p>
         </div>
       </section>

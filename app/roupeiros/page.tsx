@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type WardrobeFeature = {
@@ -8,6 +9,8 @@ type WardrobeFeature = {
 type WardrobeProject = {
   title: string;
   subtitle: string;
+  image: string;
+  alt: string;
 };
 
 const wardrobeFeatures: WardrobeFeature[] = [
@@ -32,14 +35,20 @@ const wardrobeProjects: WardrobeProject[] = [
   {
     title: "Roupeiro Integrado",
     subtitle: "Solução discreta e perfeitamente enquadrada",
+    image: "/images/roupeiros/Roupeiro_integrado.png",
+    alt: "Roupeiro integrado com acabamento premium",
   },
   {
     title: "Closet Elegante",
     subtitle: "Organização premium com presença sofisticada",
+    image: "/images/roupeiros/Closet_elegante.png",
+    alt: "Closet elegante com organização premium",
   },
   {
     title: "Arrumação Minimalista",
     subtitle: "Leveza visual com máxima funcionalidade",
+    image: "/images/roupeiros/Arrumacao_minimalista.png",
+    alt: "Arrumação minimalista com design elegante",
   },
 ];
 
@@ -92,15 +101,16 @@ export default function RoupeirosPage() {
               </div>
             </div>
 
-            <div className="relative min-h-[320px] bg-[linear-gradient(135deg,#6a5a4b_0%,#40342d_42%,#d8cdc1_100%)]">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.22),transparent_34%),linear-gradient(180deg,rgba(0,0,0,0.06),rgba(0,0,0,0.18))]" />
-              <div className="absolute inset-x-8 bottom-8 top-8 rounded-[24px] border border-white/15 bg-white/8 backdrop-blur-[1px]" />
-              <div className="absolute left-10 top-16 h-[260px] w-[18%] rounded-[18px] bg-[#2c2521]/85 shadow-2xl" />
-              <div className="absolute left-[24%] top-16 h-[260px] w-[18%] rounded-[18px] bg-[#3a2f29]/85 shadow-2xl" />
-              <div className="absolute left-[44%] top-16 h-[260px] w-[18%] rounded-[18px] bg-[#5e4739]/85 shadow-2xl" />
-              <div className="absolute left-[64%] top-16 h-[260px] w-[18%] rounded-[18px] bg-[#d2c5b7]/85 shadow-2xl" />
-              <div className="absolute inset-x-[8%] top-[28%] h-[8px] rounded-full bg-[#d6c4a6]/60" />
-              <div className="absolute bottom-10 right-10 h-10 w-10 rounded-full bg-[#d3b47a]/70 blur-[1px]" />
+            <div className="relative min-h-[320px] overflow-hidden">
+              <Image
+                src="/images/roupeiros/Roupeiro_minimalista.png"
+                alt="Roupeiro minimalista por medida"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(32,26,22,0.12)_0%,rgba(32,26,22,0.02)_45%,rgba(32,26,22,0.16)_100%)]" />
             </div>
           </div>
         </div>
@@ -131,7 +141,15 @@ export default function RoupeirosPage() {
                 key={project.title}
                 className="overflow-hidden rounded-[22px] border border-[#e8dece] bg-white shadow-[0_12px_30px_rgba(0,0,0,0.05)]"
               >
-                <div className="h-[210px] bg-[linear-gradient(135deg,#efe7de_0%,#ccbca6_45%,#8c715d_100%)]" />
+                <div className="relative h-[210px] overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1200px) 33vw, 260px"
+                    className="object-cover transition duration-500 hover:scale-105"
+                  />
+                </div>
                 <div className="p-4">
                   <h3 className="font-serif text-xl text-[#2c241e]">
                     {project.title}
@@ -174,7 +192,15 @@ export default function RoupeirosPage() {
       <section className="mx-auto max-w-[1200px] px-6 py-12 md:px-8 md:py-16">
         <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="overflow-hidden rounded-[28px] border border-[#e8dece] bg-white shadow-[0_16px_38px_rgba(0,0,0,0.05)]">
-            <div className="min-h-[320px] bg-[linear-gradient(135deg,#e9e1d6_0%,#c8b197_42%,#6e5444_100%)]" />
+            <div className="relative min-h-[320px]">
+              <Image
+                src="/images/roupeiros/Planeamento_rigoroso_roupeiro.png"
+                alt="Planeamento rigoroso de roupeiro por medida"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
           </div>
 
           <div className="rounded-[28px] border border-[#e8dece] bg-white p-8 shadow-[0_16px_38px_rgba(0,0,0,0.05)]">
