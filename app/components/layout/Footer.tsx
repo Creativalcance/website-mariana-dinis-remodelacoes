@@ -131,21 +131,21 @@ export default function Footer() {
             <ul className="mt-5 space-y-3 text-sm text-[#d7cec2]">
               <li>
                 <a
-                  href="tel:+351912345678"
-                  className="transition-colors hover:text-[#d8bc82]"
-                >
-                  +351 912 345 678
-                </a>
+  href="tel:+351963582631"
+  className="transition-colors hover:text-[#d8bc82]"
+>
+  +351 963 582 631
+</a>
               </li>
               <li>
                 <a
-                  href="mailto:geral@marianadinis.pt"
+                  href="mailto:mariana.dinis@loja.aquiatuaremodelacao.pt"
                   className="transition-colors hover:text-[#d8bc82]"
                 >
-                  geral@marianadinis.pt
+                  mariana.dinis@loja.aquiatuaremodelacao.pt
                 </a>
               </li>
-              <li>Portugal</li>
+              <li>Coimbra, Portugal</li>
             </ul>
           </div>
         </div>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type ContactItem = {
@@ -9,17 +10,18 @@ type ContactItem = {
 const contactItems: ContactItem[] = [
   {
     label: "Telefone",
-    value: "+351 912 345 678",
-    href: "tel:+351912345678",
+    value: "+351 963 582 631",
+    href: "tel:+351963582631",
   },
   {
     label: "Email",
-    value: "geral@marianadinis.pt",
-    href: "mailto:geral@marianadinis.pt",
+    value: "mariana.dinis@loja.aquiatuaremodelacao.pt",
+    href: "mailto:mariana.dinis@loja.aquiatuaremodelacao.pt",
   },
   {
     label: "Localização",
-    value: "Portugal",
+    value:
+      "Rua dos Combatentes da Grande Guerra nº l4 loja 5, Coimbra, Portugal, 3030-181",
   },
 ];
 
@@ -55,14 +57,14 @@ export default function ContactosPage() {
 
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Link
-                    href="mailto:geral@marianadinis.pt"
+                    href="mailto:mariana.dinis@loja.aquiatuaremodelacao.pt"
                     className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-[#c8a96b] px-6 text-sm font-medium text-[#1f1a17] transition hover:bg-[#d7b779]"
                   >
                     Enviar email
                   </Link>
 
                   <Link
-                    href="tel:+351912345678"
+                    href="tel:+351963582631"
                     className="inline-flex min-h-[48px] items-center justify-center rounded-full border border-[#d5b57a]/50 px-6 text-sm font-medium text-[#f5e8cf] transition hover:bg-white/5"
                   >
                     Ligar agora
@@ -71,14 +73,16 @@ export default function ContactosPage() {
               </div>
             </div>
 
-            <div className="relative min-h-[320px] bg-[linear-gradient(135deg,#6f5b4c_0%,#40342d_42%,#d8cdc1_100%)]">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.22),transparent_34%),linear-gradient(180deg,rgba(0,0,0,0.06),rgba(0,0,0,0.18))]" />
-              <div className="absolute inset-x-8 bottom-8 top-8 rounded-[24px] border border-white/15 bg-white/8 backdrop-blur-[1px]" />
-              <div className="absolute left-10 top-14 h-[84px] w-[84px] rounded-full border border-white/20 bg-[#c8a96b]/70" />
-              <div className="absolute right-12 top-16 h-[140px] w-[42%] rounded-[22px] bg-[#2d2420]/80 shadow-2xl" />
-              <div className="absolute left-12 top-[42%] h-[150px] w-[34%] rounded-[22px] bg-[#d2c5b7]/80 shadow-2xl" />
-              <div className="absolute bottom-10 right-10 left-[42%] top-[48%] rounded-[22px] bg-[#604939]/85 shadow-2xl" />
-              <div className="absolute inset-x-[44%] top-[54%] h-[10px] rounded-full bg-[#d6c4a6]/70" />
+            <div className="relative min-h-[320px] overflow-hidden">
+              <Image
+                src="/images/contactos/Roupeiro_carvalho.png"
+                alt="Roupeiro em carvalho com iluminação integrada"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(32,26,22,0.12)_0%,rgba(32,26,22,0.02)_45%,rgba(32,26,22,0.18)_100%)]" />
             </div>
           </div>
         </div>
@@ -243,8 +247,8 @@ export default function ContactosPage() {
               </h2>
 
               <p className="mt-4 text-sm leading-7 text-neutral-600 md:text-base">
-                Acreditamos numa relação de proximidade com cada cliente, desde o
-                primeiro contacto até à definição da melhor solução para o
+                Acreditamos numa relação de proximidade com cada cliente, desde
+                o primeiro contacto até à definição da melhor solução para o
                 espaço.
               </p>
             </div>
