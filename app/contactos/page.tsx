@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Reveal from "@/app/components/Reveal";
 
 type ContactItem = {
   label: string;
@@ -88,190 +89,198 @@ export default function ContactosPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1200px] px-6 py-12 md:px-8 md:py-16">
-        <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="rounded-[28px] border border-[#e8dece] bg-white p-8 shadow-[0_16px_38px_rgba(0,0,0,0.05)]">
-            <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#b5965d]">
-              Informação de contacto
-            </span>
+      <Reveal>
+        <section className="mx-auto max-w-[1200px] px-6 py-12 md:px-8 md:py-16">
+          <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+            <Reveal>
+              <div className="rounded-[28px] border border-[#e8dece] bg-white p-8 shadow-[0_16px_38px_rgba(0,0,0,0.05)]">
+                <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#b5965d]">
+                  Informação de contacto
+                </span>
 
-            <h2 className="mt-4 font-serif text-3xl leading-tight text-[#2c241e]">
-              Fale connosco de forma simples e direta
-            </h2>
+                <h2 className="mt-4 font-serif text-3xl leading-tight text-[#2c241e]">
+                  Fale connosco de forma simples e direta
+                </h2>
 
-            <div className="mt-8 space-y-4">
-              {contactItems.map((item) => (
-                <div
-                  key={item.label}
-                  className="rounded-[20px] border border-[#efe7db] bg-[#f7f3ec] px-5 py-5"
-                >
-                  <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-[#b5965d]">
-                    {item.label}
-                  </p>
+                <div className="mt-8 space-y-4">
+                  {contactItems.map((item, index) => (
+                    <Reveal key={item.label} delay={index * 100}>
+                      <div className="rounded-[20px] border border-[#efe7db] bg-[#f7f3ec] px-5 py-5">
+                        <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-[#b5965d]">
+                          {item.label}
+                        </p>
 
-                  {item.href ? (
-                    <Link
-                      href={item.href}
-                      className="mt-2 block text-base font-medium text-[#2c241e] transition hover:text-[#b5965d]"
-                    >
-                      {item.value}
-                    </Link>
-                  ) : (
-                    <p className="mt-2 text-base font-medium text-[#2c241e]">
-                      {item.value}
-                    </p>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-[28px] border border-[#e8dece] bg-white p-8 shadow-[0_16px_38px_rgba(0,0,0,0.05)]">
-            <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#b5965d]">
-              Pedido de contacto
-            </span>
-
-            <h2 className="mt-4 font-serif text-3xl leading-tight text-[#2c241e]">
-              Envie-nos uma mensagem
-            </h2>
-
-            <p className="mt-4 text-sm leading-7 text-neutral-600 md:text-base">
-              Preencha os dados abaixo e entraremos em contacto consigo com a
-              maior brevidade possível.
-            </p>
-
-            <form className="mt-8 space-y-5">
-              <div className="grid gap-5 md:grid-cols-2">
-                <div>
-                  <label
-                    htmlFor="nome"
-                    className="mb-2 block text-sm font-medium text-[#2c241e]"
-                  >
-                    Nome
-                  </label>
-                  <input
-                    id="nome"
-                    name="nome"
-                    type="text"
-                    className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
-                    placeholder="O seu nome"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="telefone"
-                    className="mb-2 block text-sm font-medium text-[#2c241e]"
-                  >
-                    Telefone
-                  </label>
-                  <input
-                    id="telefone"
-                    name="telefone"
-                    type="tel"
-                    className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
-                    placeholder="O seu contacto"
-                  />
+                        {item.href ? (
+                          <Link
+                            href={item.href}
+                            className="mt-2 block text-base font-medium text-[#2c241e] transition hover:text-[#b5965d]"
+                          >
+                            {item.value}
+                          </Link>
+                        ) : (
+                          <p className="mt-2 text-base font-medium text-[#2c241e]">
+                            {item.value}
+                          </p>
+                        )}
+                      </div>
+                    </Reveal>
+                  ))}
                 </div>
               </div>
+            </Reveal>
 
-              <div>
-                <label
-                  htmlFor="email"
-                  className="mb-2 block text-sm font-medium text-[#2c241e]"
-                >
-                  Email
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
-                  placeholder="O seu email"
-                />
-              </div>
+            <Reveal delay={120}>
+              <div className="rounded-[28px] border border-[#e8dece] bg-white p-8 shadow-[0_16px_38px_rgba(0,0,0,0.05)]">
+                <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#b5965d]">
+                  Pedido de contacto
+                </span>
 
-              <div>
-                <label
-                  htmlFor="assunto"
-                  className="mb-2 block text-sm font-medium text-[#2c241e]"
-                >
-                  Assunto
-                </label>
-                <input
-                  id="assunto"
-                  name="assunto"
-                  type="text"
-                  className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
-                  placeholder="Ex.: Remodelação de cozinha"
-                />
-              </div>
+                <h2 className="mt-4 font-serif text-3xl leading-tight text-[#2c241e]">
+                  Envie-nos uma mensagem
+                </h2>
 
-              <div>
-                <label
-                  htmlFor="mensagem"
-                  className="mb-2 block text-sm font-medium text-[#2c241e]"
-                >
-                  Mensagem
-                </label>
-                <textarea
-                  id="mensagem"
-                  name="mensagem"
-                  rows={6}
-                  className="w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 py-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
-                  placeholder="Descreva brevemente o seu projeto"
-                />
-              </div>
+                <p className="mt-4 text-sm leading-7 text-neutral-600 md:text-base">
+                  Preencha os dados abaixo e entraremos em contacto consigo com a
+                  maior brevidade possível.
+                </p>
 
-              <button
-                type="submit"
-                className="inline-flex min-h-[50px] items-center justify-center rounded-full bg-[#c8a96b] px-6 text-sm font-medium text-[#1f1a17] transition hover:bg-[#d7b779]"
-              >
-                Enviar pedido
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
+                <form className="mt-8 space-y-5">
+                  <div className="grid gap-5 md:grid-cols-2">
+                    <div>
+                      <label
+                        htmlFor="nome"
+                        className="mb-2 block text-sm font-medium text-[#2c241e]"
+                      >
+                        Nome
+                      </label>
+                      <input
+                        id="nome"
+                        name="nome"
+                        type="text"
+                        className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
+                        placeholder="O seu nome"
+                      />
+                    </div>
 
-      <section className="border-y border-[#e8dece] bg-[#f2ede4]">
-        <div className="mx-auto max-w-[1200px] px-6 py-12 md:px-8 md:py-16">
-          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <div>
-              <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#b5965d]">
-                Como trabalhamos
-              </span>
-
-              <h2 className="mt-4 font-serif text-3xl leading-tight text-[#2c241e] md:text-4xl">
-                Um processo próximo, claro e orientado ao detalhe
-              </h2>
-
-              <p className="mt-4 text-sm leading-7 text-neutral-600 md:text-base">
-                Acreditamos numa relação de proximidade com cada cliente, desde
-                o primeiro contacto até à definição da melhor solução para o
-                espaço.
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              {workingSteps.map((step, index) => (
-                <div
-                  key={step}
-                  className="flex items-start gap-4 rounded-[20px] border border-[#ded3c2] bg-white px-5 py-5 shadow-[0_10px_24px_rgba(0,0,0,0.04)]"
-                >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#d9bf8f] text-sm font-medium text-[#b5965d]">
-                    {index + 1}
+                    <div>
+                      <label
+                        htmlFor="telefone"
+                        className="mb-2 block text-sm font-medium text-[#2c241e]"
+                      >
+                        Telefone
+                      </label>
+                      <input
+                        id="telefone"
+                        name="telefone"
+                        type="tel"
+                        className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
+                        placeholder="O seu contacto"
+                      />
+                    </div>
                   </div>
 
-                  <p className="text-sm leading-7 text-neutral-700 md:text-base">
-                    {step}
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="mb-2 block text-sm font-medium text-[#2c241e]"
+                    >
+                      Email
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
+                      placeholder="O seu email"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="assunto"
+                      className="mb-2 block text-sm font-medium text-[#2c241e]"
+                    >
+                      Assunto
+                    </label>
+                    <input
+                      id="assunto"
+                      name="assunto"
+                      type="text"
+                      className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
+                      placeholder="Ex.: Remodelação de cozinha"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="mensagem"
+                      className="mb-2 block text-sm font-medium text-[#2c241e]"
+                    >
+                      Mensagem
+                    </label>
+                    <textarea
+                      id="mensagem"
+                      name="mensagem"
+                      rows={6}
+                      className="w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 py-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
+                      placeholder="Descreva brevemente o seu projeto"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="inline-flex min-h-[50px] items-center justify-center rounded-full bg-[#c8a96b] px-6 text-sm font-medium text-[#1f1a17] transition hover:bg-[#d7b779]"
+                  >
+                    Enviar pedido
+                  </button>
+                </form>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal>
+        <section className="border-y border-[#e8dece] bg-[#f2ede4]">
+          <div className="mx-auto max-w-[1200px] px-6 py-12 md:px-8 md:py-16">
+            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+              <Reveal>
+                <div>
+                  <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#b5965d]">
+                    Como trabalhamos
+                  </span>
+
+                  <h2 className="mt-4 font-serif text-3xl leading-tight text-[#2c241e] md:text-4xl">
+                    Um processo próximo, claro e orientado ao detalhe
+                  </h2>
+
+                  <p className="mt-4 text-sm leading-7 text-neutral-600 md:text-base">
+                    Acreditamos numa relação de proximidade com cada cliente,
+                    desde o primeiro contacto até à definição da melhor solução
+                    para o espaço.
                   </p>
                 </div>
-              ))}
+              </Reveal>
+
+              <div className="space-y-4">
+                {workingSteps.map((step, index) => (
+                  <Reveal key={step} delay={index * 120}>
+                    <div className="flex items-start gap-4 rounded-[20px] border border-[#ded3c2] bg-white px-5 py-5 shadow-[0_10px_24px_rgba(0,0,0,0.04)]">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#d9bf8f] text-sm font-medium text-[#b5965d]">
+                        {index + 1}
+                      </div>
+
+                      <p className="text-sm leading-7 text-neutral-700 md:text-base">
+                        {step}
+                      </p>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </Reveal>
     </main>
   );
 }
