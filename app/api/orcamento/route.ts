@@ -3,8 +3,6 @@ import { Resend } from "resend";
 
 export const runtime = "nodejs";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 type OrcamentoBody = {
   nome?: string;
   email?: string;
@@ -23,8 +21,22 @@ function escapeHtml(value: string) {
     .replaceAll("'", "&#39;");
 }
 
+function getDestinationEmails() {
+  return (process.env.RESEND_TO_EMAIL || "info@creativalcance.com")
+    .split(",")
+    .map((email) => email.trim())
+    .filter(Boolean);
+}
+
 export async function POST(request: Request) {
   try {
+    if (!process.env.RESEND_API_KEY) {
+      return NextResponse.json(
+        { error: "RESEND_API_KEY não configurada." },
+        { status: 500 }
+      );
+    }
+
     const body = (await request.json()) as OrcamentoBody;
 
     const nome = body.nome?.trim();
@@ -41,22 +53,16 @@ export async function POST(request: Request) {
       );
     }
 
-    if (!process.env.RESEND_API_KEY) {
-      return NextResponse.json(
-        { error: "RESEND_API_KEY não configurada." },
-        { status: 500 }
-      );
-    }
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     const fromEmail =
       process.env.RESEND_FROM_EMAIL || "Mariana Dinis <onboarding@resend.dev>";
-    const toEmail =
-      process.env.RESEND_TO_EMAIL ||
-      "mariana.dinis@loja.aquiatuaremodelacao.pt";
+
+    const toEmails = getDestinationEmails();
 
     const { error } = await resend.emails.send({
       from: fromEmail,
-      to: [toEmail],
+      to: toEmails,
       replyTo: email,
       subject: `Novo pedido de orçamento — ${tipoProjeto}`,
       html: `
@@ -86,7 +92,10 @@ export async function POST(request: Request) {
       );
     }
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json(
+      { success: true, message: "Pedido enviado com sucesso." },
+      { status: 200 }
+    );
   } catch (error) {
     console.error("Erro no pedido de orçamento:", error);
 
