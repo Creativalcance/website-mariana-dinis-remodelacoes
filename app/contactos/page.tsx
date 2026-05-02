@@ -71,6 +71,10 @@ export default function ContactosPage() {
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
+    if (isSubmitting) {
+      return;
+    }
+
     setIsSubmitting(true);
     setIsSuccess(false);
     setErrorMessage("");
@@ -84,10 +88,12 @@ export default function ContactosPage() {
         body: JSON.stringify(form),
       });
 
-      const data = await response.json();
+      const data = await response.json().catch(() => null);
 
       if (!response.ok) {
-        throw new Error(data.error || "Não foi possível enviar o pedido.");
+        throw new Error(
+          data?.error || "Não foi possível enviar o pedido de contacto."
+        );
       }
 
       setForm(initialFormState);
@@ -227,7 +233,8 @@ export default function ContactosPage() {
                         value={form.nome}
                         onChange={handleChange}
                         required
-                        className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
+                        disabled={isSubmitting}
+                        className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b] disabled:cursor-not-allowed disabled:opacity-70"
                         placeholder="O seu nome"
                       />
                     </div>
@@ -245,7 +252,8 @@ export default function ContactosPage() {
                         type="tel"
                         value={form.telefone}
                         onChange={handleChange}
-                        className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
+                        disabled={isSubmitting}
+                        className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b] disabled:cursor-not-allowed disabled:opacity-70"
                         placeholder="O seu contacto"
                       />
                     </div>
@@ -265,7 +273,8 @@ export default function ContactosPage() {
                       value={form.email}
                       onChange={handleChange}
                       required
-                      className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
+                      disabled={isSubmitting}
+                      className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b] disabled:cursor-not-allowed disabled:opacity-70"
                       placeholder="O seu email"
                     />
                   </div>
@@ -283,7 +292,8 @@ export default function ContactosPage() {
                       type="text"
                       value={form.assunto}
                       onChange={handleChange}
-                      className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
+                      disabled={isSubmitting}
+                      className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b] disabled:cursor-not-allowed disabled:opacity-70"
                       placeholder="Ex.: Remodelação de cozinha"
                     />
                   </div>
@@ -302,7 +312,8 @@ export default function ContactosPage() {
                       value={form.mensagem}
                       onChange={handleChange}
                       required
-                      className="w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 py-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
+                      disabled={isSubmitting}
+                      className="w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 py-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b] disabled:cursor-not-allowed disabled:opacity-70"
                       placeholder="Descreva brevemente o seu projeto"
                     />
                   </div>
@@ -315,17 +326,19 @@ export default function ContactosPage() {
                     {isSubmitting ? "A enviar..." : "Enviar pedido"}
                   </button>
 
-                  {isSuccess ? (
-                    <p className="text-sm font-medium text-[#8b6b32]">
-                      Pedido enviado com sucesso.
-                    </p>
-                  ) : null}
+                  <div aria-live="polite">
+                    {isSuccess ? (
+                      <p className="text-sm font-medium text-[#8b6b32]">
+                        Pedido enviado com sucesso.
+                      </p>
+                    ) : null}
 
-                  {errorMessage ? (
-                    <p className="text-sm font-medium text-red-700">
-                      {errorMessage}
-                    </p>
-                  ) : null}
+                    {errorMessage ? (
+                      <p className="text-sm font-medium text-red-700">
+                        {errorMessage}
+                      </p>
+                    ) : null}
+                  </div>
                 </form>
               </div>
             </Reveal>
