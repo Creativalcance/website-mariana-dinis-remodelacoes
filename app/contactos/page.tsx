@@ -1,11 +1,30 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { ChangeEvent, FormEvent, useState } from "react";
 import Reveal from "@/app/components/Reveal";
 
 type ContactItem = {
   label: string;
   value: string;
   href?: string;
+};
+
+type ContactFormState = {
+  nome: string;
+  email: string;
+  telefone: string;
+  assunto: string;
+  mensagem: string;
+};
+
+const initialFormState: ContactFormState = {
+  nome: "",
+  email: "",
+  telefone: "",
+  assunto: "",
+  mensagem: "",
 };
 
 const contactItems: ContactItem[] = [
@@ -33,6 +52,54 @@ const workingSteps = [
 ];
 
 export default function ContactosPage() {
+  const [form, setForm] = useState<ContactFormState>(initialFormState);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  function handleChange(
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
+    const { name, value } = event.target;
+
+    setForm((current) => ({
+      ...current,
+      [name]: value,
+    }));
+  }
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    setIsSubmitting(true);
+    setIsSuccess(false);
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/contactos", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Não foi possível enviar o pedido.");
+      }
+
+      setForm(initialFormState);
+      setIsSuccess(true);
+    } catch (error) {
+      console.error("Erro ao enviar contacto:", error);
+      setErrorMessage("Não foi possível enviar o pedido. Tente novamente.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
   return (
     <main className="bg-[#f8f6f2] text-neutral-900">
       <section className="mx-auto max-w-[1200px] px-6 pb-12 pt-8 md:px-8 md:pb-16 md:pt-10">
@@ -144,7 +211,7 @@ export default function ContactosPage() {
                   maior brevidade possível.
                 </p>
 
-                <form className="mt-8 space-y-5">
+                <form onSubmit={handleSubmit} className="mt-8 space-y-5">
                   <div className="grid gap-5 md:grid-cols-2">
                     <div>
                       <label
@@ -157,6 +224,9 @@ export default function ContactosPage() {
                         id="nome"
                         name="nome"
                         type="text"
+                        value={form.nome}
+                        onChange={handleChange}
+                        required
                         className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
                         placeholder="O seu nome"
                       />
@@ -173,6 +243,8 @@ export default function ContactosPage() {
                         id="telefone"
                         name="telefone"
                         type="tel"
+                        value={form.telefone}
+                        onChange={handleChange}
                         className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
                         placeholder="O seu contacto"
                       />
@@ -190,6 +262,9 @@ export default function ContactosPage() {
                       id="email"
                       name="email"
                       type="email"
+                      value={form.email}
+                      onChange={handleChange}
+                      required
                       className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
                       placeholder="O seu email"
                     />
@@ -206,6 +281,8 @@ export default function ContactosPage() {
                       id="assunto"
                       name="assunto"
                       type="text"
+                      value={form.assunto}
+                      onChange={handleChange}
                       className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
                       placeholder="Ex.: Remodelação de cozinha"
                     />
@@ -222,6 +299,9 @@ export default function ContactosPage() {
                       id="mensagem"
                       name="mensagem"
                       rows={6}
+                      value={form.mensagem}
+                      onChange={handleChange}
+                      required
                       className="w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 py-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
                       placeholder="Descreva brevemente o seu projeto"
                     />
@@ -229,10 +309,23 @@ export default function ContactosPage() {
 
                   <button
                     type="submit"
-                    className="inline-flex min-h-[50px] items-center justify-center rounded-full bg-[#c8a96b] px-6 text-sm font-medium text-[#1f1a17] transition hover:bg-[#d7b779]"
+                    disabled={isSubmitting}
+                    className="inline-flex min-h-[50px] items-center justify-center rounded-full bg-[#c8a96b] px-6 text-sm font-medium text-[#1f1a17] transition hover:bg-[#d7b779] disabled:cursor-not-allowed disabled:opacity-70"
                   >
-                    Enviar pedido
+                    {isSubmitting ? "A enviar..." : "Enviar pedido"}
                   </button>
+
+                  {isSuccess ? (
+                    <p className="text-sm font-medium text-[#8b6b32]">
+                      Pedido enviado com sucesso.
+                    </p>
+                  ) : null}
+
+                  {errorMessage ? (
+                    <p className="text-sm font-medium text-red-700">
+                      {errorMessage}
+                    </p>
+                  ) : null}
                 </form>
               </div>
             </Reveal>
