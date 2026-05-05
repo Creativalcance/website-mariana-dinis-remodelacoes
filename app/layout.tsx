@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Header from "@/app/components/layout/Header";
 import Footer from "@/app/components/layout/Footer";
@@ -60,6 +61,8 @@ export default function RootLayout({
 }: {
   children: ReactNode;
 }) {
+  const googleAdsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
+
   return (
     <html lang="pt">
       <body className="bg-white text-neutral-900">
@@ -76,6 +79,27 @@ export default function RootLayout({
 
         {process.env.NEXT_PUBLIC_GA_ID ? (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        ) : null}
+
+        {googleAdsId ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${googleAdsId}`}
+              strategy="afterInteractive"
+            />
+            <Script
+              id="google-ads"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${googleAdsId}');
+                `,
+              }}
+            />
+          </>
         ) : null}
       </body>
     </html>
