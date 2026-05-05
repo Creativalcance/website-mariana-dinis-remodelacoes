@@ -1,7 +1,33 @@
-import Image from "next/image";
+import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/app/components/Reveal";
 import ImageLightbox from "@/app/components/ImageLightbox";
+
+export const metadata: Metadata = {
+  title:
+    "Remodelações em Coimbra | Mariana Dinis Remodelações",
+  description:
+    "Remodelações em Coimbra, cozinhas por medida, roupeiros por medida e interiores premium. Projetos personalizados com design elegante, funcionalidade e acabamentos cuidados.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title:
+      "Remodelações em Coimbra | Mariana Dinis Remodelações",
+    description:
+      "Projetos de remodelações, cozinhas por medida, roupeiros por medida e interiores premium em Coimbra.",
+    url: "/",
+    type: "website",
+    images: [
+      {
+        url: "/images/home/Cozinhas_premium_modernas_4.png",
+        width: 1200,
+        height: 630,
+        alt: "Remodelação premium com cozinha por medida em Coimbra",
+      },
+    ],
+  },
+};
 
 type FeatureItem = {
   title: string;
@@ -19,12 +45,12 @@ const features: FeatureItem[] = [
   {
     title: "Soluções Personalizadas",
     description:
-      "Projetos pensados ao detalhe para responder às necessidades funcionais e estéticas de cada espaço.",
+      "Projetos pensados ao detalhe para responder às necessidades funcionais e estéticas de cada espaço, com foco em remodelações em Coimbra e região.",
   },
   {
     title: "Acabamentos Premium",
     description:
-      "Materiais, proporções e composições cuidadosamente selecionados para um resultado elegante e duradouro.",
+      "Materiais, proporções e composições cuidadosamente selecionados para um resultado elegante, duradouro e adaptado a interiores premium.",
   },
   {
     title: "Acompanhamento Completo",
@@ -38,19 +64,19 @@ const projects: ProjectCard[] = [
     title: "Cozinhas por Medida",
     category: "Design funcional",
     image: "/images/home/Cozinhas_premium_modernas_2.png",
-    alt: "Cozinha premium moderna por medida",
+    alt: "Cozinha por medida premium em Coimbra",
   },
   {
     title: "Roupeiros Elegantes",
     category: "Arrumação integrada",
     image: "/images/home/Roupeiros_quentes_premium_2.png",
-    alt: "Roupeiro elegante com acabamento premium",
+    alt: "Roupeiro por medida elegante com acabamento premium em Coimbra",
   },
   {
     title: "Interiores Harmoniosos",
     category: "Remodelação premium",
     image: "/images/home/Closet_elegante_paleta_azul_noite.png",
-    alt: "Closet elegante com paleta azul noite",
+    alt: "Interior premium com closet elegante em Coimbra",
   },
 ];
 
@@ -69,19 +95,20 @@ export default function HomePage() {
             <div className="flex items-center px-8 py-10 md:px-12 lg:px-16">
               <div className="max-w-[520px]">
                 <span className="inline-flex rounded-full border border-[#c9a96a]/40 px-4 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-[#d5b57a]">
-                  Remodelações • Interiores • Design
+                  Remodelações • Interiores • Design em Coimbra
                 </span>
 
                 <h1 className="mt-6 font-serif text-4xl leading-[1.05] text-[#f5e8cf] md:text-6xl">
-                  Transforme
+                  Remodelações
                   <br />
-                  a sua casa
+                  premium em Coimbra
                 </h1>
 
                 <p className="mt-5 max-w-[470px] text-sm leading-7 text-[#d9d0c5] md:text-base">
-                  Criamos ambientes sofisticados, funcionais e intemporais,
-                  pensados para valorizar a sua casa e elevar a experiência de
-                  viver cada espaço.
+                  Criamos remodelações em Coimbra, cozinhas por medida,
+                  roupeiros por medida e interiores sofisticados, pensados para
+                  valorizar a sua casa e elevar a experiência de viver cada
+                  espaço.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
@@ -105,7 +132,7 @@ export default function HomePage() {
             <div className="relative min-h-[320px] overflow-hidden">
               <ImageLightbox
                 src="/images/home/Cozinhas_premium_modernas_4.png"
-                alt="Cozinha premium moderna com ilha central"
+                alt="Cozinha premium moderna com ilha central em Coimbra"
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
@@ -129,9 +156,9 @@ export default function HomePage() {
               </h2>
 
               <p className="mt-4 text-sm leading-7 text-neutral-600 md:text-base">
-                Trabalhamos cada projeto com sensibilidade estética, atenção ao
-                detalhe e uma visão clara de funcionalidade, para criar espaços
-                equilibrados, acolhedores e sofisticados.
+                Trabalhamos cada projeto em Coimbra com sensibilidade estética,
+                atenção ao detalhe e uma visão clara de funcionalidade, para
+                criar espaços equilibrados, acolhedores e sofisticados.
               </p>
             </div>
 
@@ -172,7 +199,8 @@ export default function HomePage() {
               </h2>
               <p className="mt-3 max-w-[720px] text-sm leading-7 text-neutral-600 md:text-base">
                 Soluções desenhadas para elevar a funcionalidade do dia a dia sem
-                abdicar da elegância, da leveza visual e da coerência do conjunto.
+                abdicar da elegância, da leveza visual e da coerência do
+                conjunto.
               </p>
             </div>
 
@@ -227,7 +255,7 @@ export default function HomePage() {
                 <div className="relative min-h-[280px]">
                   <ImageLightbox
                     src="/images/home/Processo_rigoroso_cozinha.png"
-                    alt="Processo rigoroso de remodelação de cozinha"
+                    alt="Processo rigoroso de remodelação de cozinha em Coimbra"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                   />
@@ -241,8 +269,8 @@ export default function HomePage() {
                       Cozinhas
                     </h3>
                     <p className="mt-2 text-sm leading-7 text-neutral-600">
-                      Espaços desenhados para unir requinte, circulação e
-                      utilização prática.
+                      Cozinhas por medida em Coimbra, desenhadas para unir
+                      requinte, circulação e utilização prática.
                     </p>
                   </div>
 
@@ -254,8 +282,8 @@ export default function HomePage() {
                       Roupeiros
                     </h3>
                     <p className="mt-2 text-sm leading-7 text-neutral-600">
-                      Soluções de arrumação que elevam a organização e valorizam o
-                      espaço.
+                      Roupeiros por medida que elevam a organização e valorizam
+                      o espaço.
                     </p>
                   </div>
                 </div>
@@ -273,12 +301,13 @@ export default function HomePage() {
             </span>
 
             <h2 className="mx-auto mt-4 max-w-[760px] font-serif text-3xl leading-tight text-[#f5e8cf] md:text-5xl">
-              Dê o primeiro passo para transformar o seu espaço
+              Dê o primeiro passo para transformar o seu espaço em Coimbra
             </h2>
 
             <p className="mx-auto mt-4 max-w-[640px] text-sm leading-7 text-[#d8cec2] md:text-base">
-              Partilhe connosco a sua visão. Criamos soluções de remodelação e
-              design de interiores com um olhar premium, funcional e totalmente
+              Partilhe connosco a sua visão. Criamos soluções de remodelação,
+              cozinhas por medida, roupeiros por medida e design de interiores
+              em Coimbra, com um olhar premium, funcional e totalmente
               personalizado.
             </p>
 

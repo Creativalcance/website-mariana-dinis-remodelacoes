@@ -77,19 +77,22 @@ export default function OrcamentoPage() {
             <div className="flex items-center px-8 py-10 md:px-12 lg:px-16">
               <div className="max-w-[520px]">
                 <span className="inline-flex rounded-full border border-[#c9a96a]/40 px-4 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-[#d5b57a]">
-                  Pedir orçamento
+                  Pedir orçamento em Coimbra
                 </span>
 
                 <h1 className="mt-6 font-serif text-4xl leading-[1.05] text-[#f5e8cf] md:text-6xl">
-                  Dê início
+                  Remodelações,
                   <br />
-                  ao seu projeto
+                  cozinhas e interiores
+                  <br />
+                  em Coimbra
                 </h1>
 
                 <p className="mt-5 max-w-[470px] text-sm leading-7 text-[#d9d0c5] md:text-base">
-                  Partilhe connosco o tipo de projeto que pretende, a localização
-                  e os detalhes principais. Prepararemos uma abordagem ajustada
-                  ao seu espaço e aos seus objetivos.
+                  Peça um orçamento personalizado para remodelações em Coimbra,
+                  cozinhas por medida, roupeiros por medida e projetos de
+                  interiores premium. Partilhe connosco a localização, o tipo de
+                  espaço e os principais detalhes do seu projeto.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
@@ -113,7 +116,7 @@ export default function OrcamentoPage() {
             <div className="relative min-h-[320px] overflow-hidden">
               <Image
                 src="/images/orcamento/Cozinha_coral.png"
-                alt="Cozinha coral premium para pedido de orçamento"
+                alt="Cozinha por medida premium em Coimbra para projeto de remodelação"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -135,14 +138,14 @@ export default function OrcamentoPage() {
                 </span>
 
                 <h2 className="mt-4 font-serif text-3xl leading-tight text-[#2c241e]">
-                  Um pedido simples, claro e orientado ao detalhe
+                  Um pedido simples para remodelações e interiores em Coimbra
                 </h2>
 
                 <div className="mt-8 space-y-4">
                   {[
-                    "Indique o tipo de projeto e o contexto do espaço.",
-                    "Descreva os detalhes essenciais e a localização.",
-                    "Entraremos em contacto para avançar com a melhor solução.",
+                    "Indique se pretende uma cozinha por medida, roupeiro por medida, remodelação total ou outro projeto.",
+                    "Descreva os detalhes essenciais, o estilo pretendido e a localização do imóvel em Coimbra ou região.",
+                    "Entraremos em contacto para compreender melhor o espaço e preparar uma proposta ajustada ao seu projeto.",
                   ].map((step, index) => (
                     <Reveal key={step} delay={index * 120}>
                       <div className="flex items-start gap-4 rounded-[18px] bg-[#f7f3ec] px-5 py-4">
@@ -166,7 +169,7 @@ export default function OrcamentoPage() {
                 </span>
 
                 <h2 className="mt-4 font-serif text-3xl leading-tight text-[#2c241e]">
-                  Peça uma proposta personalizada
+                  Peça uma proposta personalizada para o seu projeto
                 </h2>
 
                 <form onSubmit={handleSubmit} className="mt-8 space-y-5">
@@ -268,7 +271,7 @@ export default function OrcamentoPage() {
                       value={form.localizacao}
                       onChange={handleChange}
                       className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
-                      placeholder="Cidade ou zona do projeto"
+                      placeholder="Coimbra, Condeixa, Mealhada, Lousã, Cantanhede..."
                     />
                   </div>
 
@@ -287,7 +290,7 @@ export default function OrcamentoPage() {
                       onChange={handleChange}
                       required
                       className="w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 py-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
-                      placeholder="Descreva o que pretende, dimensões aproximadas, estilo desejado ou outras informações relevantes"
+                      placeholder="Descreva se pretende uma remodelação, cozinha por medida, roupeiro por medida ou projeto de interiores, incluindo dimensões aproximadas, estilo desejado e zona do imóvel"
                     />
                   </div>
 

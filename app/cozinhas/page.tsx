@@ -1,6 +1,31 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/app/components/Reveal";
 import ImageLightbox from "@/app/components/ImageLightbox";
+
+export const metadata: Metadata = {
+  title: "Cozinhas por Medida em Coimbra | Mariana Dinis Remodelações",
+  description:
+    "Cozinhas por medida em Coimbra com design personalizado, materiais premium, arrumação inteligente e execução cuidada. Projetos elegantes para casas e apartamentos em Coimbra e região.",
+  alternates: {
+    canonical: "/cozinhas",
+  },
+  openGraph: {
+    title: "Cozinhas por Medida em Coimbra | Mariana Dinis Remodelações",
+    description:
+      "Projetos de cozinhas por medida em Coimbra com design personalizado, materiais premium e execução cuidada.",
+    url: "/cozinhas",
+    type: "website",
+    images: [
+      {
+        url: "/images/cozinhas/Cozinha_hero.png",
+        width: 1200,
+        height: 630,
+        alt: "Cozinha por medida premium em Coimbra",
+      },
+    ],
+  },
+};
 
 type KitchenFeature = {
   title: string;
@@ -16,7 +41,7 @@ type KitchenProject = {
 
 const kitchenFeatures: KitchenFeature[] = [
   {
-    title: "Design à medida",
+    title: "Design à medida em Coimbra",
     description:
       "Cada cozinha é desenhada de raiz para responder à configuração do espaço, às rotinas da casa e à linguagem estética pretendida.",
   },
@@ -37,27 +62,27 @@ const kitchenProjects: KitchenProject[] = [
     title: "Cozinha Contemporânea",
     subtitle: "Linhas depuradas e materiais quentes",
     image: "/images/cozinhas/Cozinha_contemporanea.png",
-    alt: "Cozinha contemporânea com materiais quentes",
+    alt: "Cozinha contemporânea por medida em Coimbra",
   },
   {
     title: "Cozinha Minimalista",
     subtitle: "Equilíbrio entre simplicidade e requinte",
     image: "/images/cozinhas/Cozinha_minimalista.png",
-    alt: "Cozinha minimalista com acabamento premium",
+    alt: "Cozinha minimalista premium em Coimbra",
   },
   {
     title: "Cozinha Familiar",
     subtitle: "Espaço funcional para viver e partilhar",
     image: "/images/cozinhas/Cozinha_familiar.png",
-    alt: "Cozinha familiar moderna e funcional",
+    alt: "Cozinha familiar por medida em Coimbra",
   },
 ];
 
 const processSteps = [
-  "Levantamento e briefing",
-  "Conceito e desenho",
-  "Escolha de materiais",
-  "Produção e execução",
+  "Levantamento e briefing do espaço",
+  "Conceito e desenho personalizado",
+  "Escolha de materiais e acabamentos",
+  "Produção, montagem e detalhe final",
 ];
 
 export default function CozinhasPage() {
@@ -69,19 +94,20 @@ export default function CozinhasPage() {
             <div className="flex items-center px-8 py-10 md:px-12 lg:px-16">
               <div className="max-w-[520px]">
                 <span className="inline-flex rounded-full border border-[#c9a96a]/40 px-4 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-[#d5b57a]">
-                  Cozinhas por medida
+                  Cozinhas por medida em Coimbra
                 </span>
 
                 <h1 className="mt-6 font-serif text-4xl leading-[1.05] text-[#f5e8cf] md:text-6xl">
-                  Cozinhas com
+                  Cozinhas por
                   <br />
-                  identidade
+                  medida em Coimbra
                 </h1>
 
                 <p className="mt-5 max-w-[470px] text-sm leading-7 text-[#d9d0c5] md:text-base">
-                  Criamos cozinhas elegantes, funcionais e pensadas ao detalhe,
-                  onde a estética se cruza com a organização e com a experiência
-                  real de viver o espaço.
+                  Criamos cozinhas por medida em Coimbra, elegantes, funcionais
+                  e pensadas ao detalhe para casas e apartamentos. Cada projeto
+                  combina design personalizado, arrumação inteligente, materiais
+                  premium e uma execução cuidada.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
@@ -105,7 +131,7 @@ export default function CozinhasPage() {
             <div className="relative min-h-[320px] overflow-hidden">
               <ImageLightbox
                 src="/images/cozinhas/Cozinha_hero.png"
-                alt="Cozinha premium por medida"
+                alt="Cozinha premium por medida em Coimbra"
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
@@ -121,7 +147,7 @@ export default function CozinhasPage() {
           <div className="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-start">
             <div className="max-w-[430px]">
               <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#b5965d]">
-                Sofisticação funcional
+                Cozinhas em Coimbra
               </span>
 
               <h2 className="mt-4 font-serif text-3xl leading-tight text-[#2c241e] md:text-4xl">
@@ -129,9 +155,10 @@ export default function CozinhasPage() {
               </h2>
 
               <p className="mt-4 text-sm leading-7 text-neutral-600 md:text-base">
-                A cozinha é hoje um dos espaços mais centrais da casa. Por isso,
-                desenhamos ambientes que conciliam beleza, conforto, arrumação e
-                fluidez, com uma abordagem totalmente personalizada.
+                Desenvolvemos cozinhas por medida em Coimbra para quem procura
+                uma solução personalizada, elegante e funcional. Cada projeto é
+                pensado para otimizar circulação, arrumação, iluminação e
+                coerência visual.
               </p>
             </div>
 
@@ -198,7 +225,7 @@ export default function CozinhasPage() {
                 <div className="relative h-[320px] md:h-full md:min-h-[420px]">
                   <ImageLightbox
                     src="/images/cozinhas/Processo_rigoroso_cozinha.png"
-                    alt="Processo rigoroso cozinha"
+                    alt="Processo rigoroso para cozinha por medida em Coimbra"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                   />
@@ -209,7 +236,7 @@ export default function CozinhasPage() {
             <Reveal delay={120}>
               <div className="rounded-[28px] border border-[#e8dece] bg-white p-8 shadow-[0_16px_38px_rgba(0,0,0,0.05)]">
                 <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#b5965d]">
-                  Processo
+                  Processo local
                 </span>
 
                 <h2 className="mt-4 font-serif text-3xl leading-tight text-[#2c241e]">
@@ -217,9 +244,9 @@ export default function CozinhasPage() {
                 </h2>
 
                 <p className="mt-4 text-sm leading-7 text-neutral-600 md:text-base">
-                  Acompanhamos cada projeto de cozinha com método, proximidade e
-                  rigor, para garantir uma solução coerente do ponto de vista
-                  estético, técnico e funcional.
+                  Acompanhamos cada projeto de cozinha em Coimbra com método,
+                  proximidade e rigor, para garantir uma solução coerente do
+                  ponto de vista estético, técnico e funcional.
                 </p>
 
                 <div className="mt-8 space-y-4">
@@ -248,7 +275,7 @@ export default function CozinhasPage() {
         <section className="mx-auto max-w-[1200px] px-6 pb-16 md:px-8 md:pb-24">
           <div className="rounded-[28px] border border-[#d9cfbf] bg-[#231d18] px-8 py-10 text-center shadow-[0_20px_60px_rgba(0,0,0,0.08)] md:px-12 md:py-14">
             <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#d5b57a]">
-              Projeto de cozinha
+              Projeto de cozinha em Coimbra
             </span>
 
             <h2 className="mx-auto mt-4 max-w-[760px] font-serif text-3xl leading-tight text-[#f5e8cf] md:text-5xl">
@@ -257,7 +284,8 @@ export default function CozinhasPage() {
 
             <p className="mx-auto mt-4 max-w-[650px] text-sm leading-7 text-[#d8cec2] md:text-base">
               Partilhe connosco o que idealiza. Desenvolvemos cozinhas por medida
-              com um olhar premium, funcional e totalmente personalizado.
+              em Coimbra com um olhar premium, funcional e totalmente
+              personalizado.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">

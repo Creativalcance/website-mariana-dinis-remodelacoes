@@ -1,6 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/app/components/Reveal";
 import ImageLightbox from "@/app/components/ImageLightbox";
+
+export const metadata: Metadata = {
+  title:
+    "Projetos de Remodelações, Cozinhas e Roupeiros em Coimbra | Mariana Dinis Remodelações",
+  description:
+    "Conheça projetos de remodelações em Coimbra, cozinhas por medida, roupeiros por medida e interiores premium desenvolvidos com detalhe, elegância e acabamentos sofisticados.",
+};
 
 type ProjectHighlight = {
   id: string;
@@ -14,12 +22,12 @@ type ProjectHighlight = {
 
 const featuredProject: ProjectHighlight = {
   id: "cozinha-contemporanea-premium",
-  title: "Cozinha contemporânea com acabamentos premium",
-  category: "Cozinhas",
+  title: "Cozinha contemporânea com acabamentos premium em Coimbra",
+  category: "Cozinhas por medida",
   image: "/images/projetos/Cozinha_contemporanea_premium.png",
-  alt: "Projeto de cozinha contemporânea com acabamentos premium",
+  alt: "Projeto de cozinha por medida contemporânea com acabamentos premium em Coimbra",
   detail:
-    "Pormenor de destaque: linhas depuradas, materiais nobres e composição visual sofisticada.",
+    "Pormenor de destaque: linhas depuradas, materiais nobres e composição visual sofisticada para interiores premium.",
   year: "2026",
 };
 
@@ -27,19 +35,19 @@ const projects: ProjectHighlight[] = [
   {
     id: "closet-detalhe-textura",
     title: "Closet elegante com detalhe e textura",
-    category: "Roupeiros",
+    category: "Roupeiros por medida",
     image: "/images/projetos/Closet_detalhe_e_textura.png",
-    alt: "Closet elegante com detalhe de materiais e textura",
+    alt: "Closet e roupeiro por medida com detalhe de materiais e textura em Coimbra",
     detail:
-      "Pormenor de destaque: organização premium, textura visual e acabamento cuidado.",
+      "Pormenor de destaque: organização premium, textura visual e acabamento cuidado para valorizar o espaço.",
     year: "2026",
   },
   {
     id: "cozinha-luminosa",
     title: "Cozinha luminosa com equilíbrio funcional",
-    category: "Cozinhas",
+    category: "Cozinhas por medida",
     image: "/images/projetos/Cozinha_luminosa.png",
-    alt: "Cozinha luminosa com ambiente funcional e elegante",
+    alt: "Cozinha por medida luminosa com ambiente funcional e elegante em Coimbra",
     detail:
       "Pormenor de destaque: luz natural, fluidez de circulação e integração dos materiais.",
     year: "2026",
@@ -47,9 +55,9 @@ const projects: ProjectHighlight[] = [
   {
     id: "cozinha-minimalista",
     title: "Cozinha minimalista com presença sofisticada",
-    category: "Cozinhas",
+    category: "Cozinhas por medida",
     image: "/images/projetos/Cozinha_minimalista.png",
-    alt: "Cozinha minimalista com acabamento sofisticado",
+    alt: "Cozinha por medida minimalista com acabamento sofisticado em Coimbra",
     detail:
       "Pormenor de destaque: simplicidade formal, proporções equilibradas e acabamento premium.",
     year: "2026",
@@ -57,9 +65,9 @@ const projects: ProjectHighlight[] = [
   {
     id: "roupeiro-integrado",
     title: "Roupeiro integrado com linhas elegantes",
-    category: "Roupeiros",
+    category: "Roupeiros por medida",
     image: "/images/projetos/Roupeiro_integrado.png",
-    alt: "Roupeiro integrado com linhas elegantes",
+    alt: "Roupeiro por medida integrado com linhas elegantes em Coimbra",
     detail:
       "Pormenor de destaque: integração no espaço, arrumação discreta e continuidade visual.",
     year: "2026",
@@ -98,21 +106,22 @@ export default function ProjetosPage() {
             <div className="flex items-center px-8 py-10 md:px-12 lg:px-16">
               <div className="max-w-[520px]">
                 <span className="inline-flex rounded-full border border-[#c9a96a]/40 px-4 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-[#d5b57a]">
-                  Portefólio
+                  Portefólio em Coimbra
                 </span>
 
                 <h1 className="mt-6 font-serif text-4xl leading-[1.05] text-[#f5e8cf] md:text-6xl">
-                  Projetos com
+                  Projetos de
                   <br />
-                  detalhe, textura
+                  remodelações,
                   <br />
-                  e identidade
+                  cozinhas e roupeiros
                 </h1>
 
                 <p className="mt-5 max-w-[480px] text-sm leading-7 text-[#d9d0c5] md:text-base">
-                  Uma seleção de ambientes desenvolvidos com atenção ao detalhe,
-                  onde cozinhas, roupeiros e interiores são pensados para unir
-                  estética, funcionalidade e sofisticação.
+                  Uma seleção de projetos de remodelações em Coimbra, cozinhas
+                  por medida, roupeiros por medida e interiores premium,
+                  desenvolvidos com atenção ao detalhe, funcionalidade e
+                  sofisticação.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
@@ -169,7 +178,7 @@ export default function ProjetosPage() {
             <Reveal>
               <div className="rounded-[24px] border border-[#e8dece] bg-white p-6 shadow-[0_10px_24px_rgba(0,0,0,0.04)]">
                 <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#b5965d]">
-                  Cozinhas por medida
+                  Cozinhas por medida em Coimbra
                 </span>
                 <h2 className="mt-4 font-serif text-2xl text-[#2c241e]">
                   Ambientes funcionais e sofisticados
@@ -185,7 +194,7 @@ export default function ProjetosPage() {
             <Reveal delay={120}>
               <div className="rounded-[24px] border border-[#e8dece] bg-white p-6 shadow-[0_10px_24px_rgba(0,0,0,0.04)]">
                 <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#b5965d]">
-                  Roupeiros e closets
+                  Roupeiros por medida em Coimbra
                 </span>
                 <h2 className="mt-4 font-serif text-2xl text-[#2c241e]">
                   Arrumação integrada com elegância
@@ -201,7 +210,7 @@ export default function ProjetosPage() {
             <Reveal delay={240}>
               <div className="rounded-[24px] border border-[#e8dece] bg-white p-6 shadow-[0_10px_24px_rgba(0,0,0,0.04)]">
                 <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#b5965d]">
-                  Detalhe e execução
+                  Interiores premium em Coimbra
                 </span>
                 <h2 className="mt-4 font-serif text-2xl text-[#2c241e]">
                   Acabamentos que definem o projeto
@@ -225,7 +234,7 @@ export default function ProjetosPage() {
                 Galeria de projetos
               </span>
               <h2 className="mt-4 font-serif text-3xl leading-tight text-[#2c241e] md:text-4xl">
-                Cozinhas, roupeiros e interiores com detalhe premium
+                Cozinhas, roupeiros e interiores premium em Coimbra
               </h2>
             </div>
 
@@ -297,7 +306,7 @@ export default function ProjetosPage() {
         <section className="mx-auto max-w-[1280px] px-6 pb-16 md:px-8 md:pb-24">
           <div className="rounded-[28px] border border-[#d9cfbf] bg-[#231d18] px-8 py-10 text-center shadow-[0_20px_60px_rgba(0,0,0,0.08)] md:px-12 md:py-14">
             <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#d5b57a]">
-              O seu projeto
+              O seu projeto em Coimbra
             </span>
 
             <h2 className="mx-auto mt-4 max-w-[820px] font-serif text-3xl leading-tight text-[#f5e8cf] md:text-5xl">
@@ -305,8 +314,9 @@ export default function ProjetosPage() {
             </h2>
 
             <p className="mx-auto mt-4 max-w-[680px] text-sm leading-7 text-[#d8cec2] md:text-base">
-              Se procura uma solução personalizada, elegante e pensada ao
-              detalhe, estamos disponíveis para desenvolver um projeto à medida.
+              Se procura uma solução personalizada para remodelações, cozinhas
+              por medida, roupeiros por medida ou interiores premium em Coimbra,
+              estamos disponíveis para desenvolver um projeto à medida.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">

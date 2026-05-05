@@ -41,13 +41,13 @@ const contactItems: ContactItem[] = [
   {
     label: "Localização",
     value:
-      "Rua dos Combatentes da Grande Guerra nº l4 loja 5, Coimbra, Portugal, 3030-181",
+      "Rua dos Combatentes da Grande Guerra nº 14 loja 5, Coimbra, Portugal, 3030-181",
   },
 ];
 
 const workingSteps = [
-  "Partilha connosco a sua ideia e as necessidades do espaço.",
-  "Analisamos o projeto e definimos a melhor abordagem.",
+  "Partilhe connosco a sua ideia, a localização em Coimbra ou região e as necessidades do espaço.",
+  "Analisamos o projeto e definimos a melhor abordagem para remodelações, cozinhas por medida, roupeiros ou interiores.",
   "Apresentamos uma proposta personalizada, alinhada com o objetivo pretendido.",
 ];
 
@@ -114,19 +114,22 @@ export default function ContactosPage() {
             <div className="flex items-center px-8 py-10 md:px-12 lg:px-16">
               <div className="max-w-[520px]">
                 <span className="inline-flex rounded-full border border-[#c9a96a]/40 px-4 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-[#d5b57a]">
-                  Contactos
+                  Contactos em Coimbra
                 </span>
 
                 <h1 className="mt-6 font-serif text-4xl leading-[1.05] text-[#f5e8cf] md:text-6xl">
-                  Vamos falar
+                  Fale connosco
                   <br />
                   sobre o seu projeto
+                  <br />
+                  em Coimbra
                 </h1>
 
                 <p className="mt-5 max-w-[470px] text-sm leading-7 text-[#d9d0c5] md:text-base">
                   Estamos disponíveis para ouvir a sua ideia, compreender as
-                  necessidades do espaço e desenvolver uma solução elegante,
-                  funcional e pensada ao detalhe.
+                  necessidades do espaço e desenvolver uma solução elegante para
+                  remodelações em Coimbra, cozinhas por medida, roupeiros por
+                  medida e interiores premium.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
@@ -150,7 +153,7 @@ export default function ContactosPage() {
             <div className="relative min-h-[320px] overflow-hidden">
               <Image
                 src="/images/contactos/Roupeiro_carvalho.png"
-                alt="Roupeiro em carvalho com iluminação integrada"
+                alt="Roupeiro por medida em carvalho com iluminação integrada em Coimbra"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -172,7 +175,7 @@ export default function ContactosPage() {
                 </span>
 
                 <h2 className="mt-4 font-serif text-3xl leading-tight text-[#2c241e]">
-                  Fale connosco de forma simples e direta
+                  Fale connosco de forma simples e direta em Coimbra
                 </h2>
 
                 <div className="mt-8 space-y-4">
@@ -213,8 +216,9 @@ export default function ContactosPage() {
                 </h2>
 
                 <p className="mt-4 text-sm leading-7 text-neutral-600 md:text-base">
-                  Preencha os dados abaixo e entraremos em contacto consigo com a
-                  maior brevidade possível.
+                  Preencha os dados abaixo e entraremos em contacto consigo para
+                  falar sobre o seu projeto de remodelação, cozinha por medida,
+                  roupeiro por medida ou interiores em Coimbra.
                 </p>
 
                 <form onSubmit={handleSubmit} className="mt-8 space-y-5">
@@ -294,7 +298,7 @@ export default function ContactosPage() {
                       onChange={handleChange}
                       disabled={isSubmitting}
                       className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b] disabled:cursor-not-allowed disabled:opacity-70"
-                      placeholder="Ex.: Remodelação de cozinha"
+                      placeholder="Ex.: Remodelação de cozinha em Coimbra"
                     />
                   </div>
 
@@ -314,7 +318,7 @@ export default function ContactosPage() {
                       required
                       disabled={isSubmitting}
                       className="w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 py-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b] disabled:cursor-not-allowed disabled:opacity-70"
-                      placeholder="Descreva brevemente o seu projeto"
+                      placeholder="Descreva brevemente o seu projeto, a localização e o tipo de intervenção pretendida"
                     />
                   </div>
 
@@ -361,9 +365,9 @@ export default function ContactosPage() {
                   </h2>
 
                   <p className="mt-4 text-sm leading-7 text-neutral-600 md:text-base">
-                    Acreditamos numa relação de proximidade com cada cliente,
-                    desde o primeiro contacto até à definição da melhor solução
-                    para o espaço.
+                    Acreditamos numa relação de proximidade com cada cliente em
+                    Coimbra, desde o primeiro contacto até à definição da melhor
+                    solução para o espaço.
                   </p>
                 </div>
               </Reveal>

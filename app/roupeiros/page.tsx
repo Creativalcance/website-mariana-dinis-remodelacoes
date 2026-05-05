@@ -1,6 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/app/components/Reveal";
 import ImageLightbox from "@/app/components/ImageLightbox";
+
+export const metadata: Metadata = {
+  title:
+    "Roupeiros por Medida em Coimbra | Mariana Dinis Remodelações",
+  description:
+    "Roupeiros por medida em Coimbra, closets e soluções de arrumação premium, desenhadas para valorizar o espaço com elegância, funcionalidade e acabamentos cuidados.",
+};
 
 type WardrobeFeature = {
   title: string;
@@ -18,12 +26,12 @@ const wardrobeFeatures: WardrobeFeature[] = [
   {
     title: "Arrumação à medida",
     description:
-      "Cada roupeiro é desenhado em função do espaço disponível, da rotina diária e das necessidades reais de organização de cada cliente.",
+      "Cada roupeiro por medida é desenhado em função do espaço disponível, da rotina diária e das necessidades reais de organização de cada cliente em Coimbra e região.",
   },
   {
     title: "Elegância e coerência visual",
     description:
-      "Criamos soluções com uma linguagem estética cuidada, integradas na arquitetura do espaço e alinhadas com o ambiente envolvente.",
+      "Criamos roupeiros e closets com uma linguagem estética cuidada, integrados na arquitetura do espaço e alinhados com o ambiente envolvente.",
   },
   {
     title: "Funcionalidade com detalhe",
@@ -37,19 +45,19 @@ const wardrobeProjects: WardrobeProject[] = [
     title: "Roupeiro Integrado",
     subtitle: "Solução discreta e perfeitamente enquadrada",
     image: "/images/roupeiros/Roupeiro_integrado.png",
-    alt: "Roupeiro integrado com acabamento premium",
+    alt: "Roupeiro por medida integrado com acabamento premium em Coimbra",
   },
   {
     title: "Closet Elegante",
     subtitle: "Organização premium com presença sofisticada",
     image: "/images/roupeiros/Closet_elegante.png",
-    alt: "Closet elegante com organização premium",
+    alt: "Closet por medida elegante com organização premium em Coimbra",
   },
   {
     title: "Arrumação Minimalista",
     subtitle: "Leveza visual com máxima funcionalidade",
     image: "/images/roupeiros/Arrumacao_minimalista.png",
-    alt: "Arrumação minimalista com design elegante",
+    alt: "Roupeiro minimalista por medida com design elegante em Coimbra",
   },
 ];
 
@@ -69,19 +77,22 @@ export default function RoupeirosPage() {
             <div className="flex items-center px-8 py-10 md:px-12 lg:px-16">
               <div className="max-w-[520px]">
                 <span className="inline-flex rounded-full border border-[#c9a96a]/40 px-4 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-[#d5b57a]">
-                  Roupeiros por medida
+                  Roupeiros por medida em Coimbra
                 </span>
 
                 <h1 className="mt-6 font-serif text-4xl leading-[1.05] text-[#f5e8cf] md:text-6xl">
-                  Roupeiros com
+                  Roupeiros por
                   <br />
-                  organização e elegância
+                  medida com organização
+                  <br />
+                  e elegância
                 </h1>
 
                 <p className="mt-5 max-w-[470px] text-sm leading-7 text-[#d9d0c5] md:text-base">
-                  Desenvolvemos roupeiros pensados ao detalhe, com equilíbrio
-                  entre estética, funcionalidade e integração no espaço, para
-                  uma arrumação sofisticada e intemporal.
+                  Desenvolvemos roupeiros por medida em Coimbra, pensados ao
+                  detalhe, com equilíbrio entre estética, funcionalidade e
+                  integração no espaço, para uma arrumação sofisticada,
+                  personalizada e intemporal.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
@@ -105,7 +116,7 @@ export default function RoupeirosPage() {
             <div className="relative min-h-[320px] overflow-hidden">
               <ImageLightbox
                 src="/images/roupeiros/Roupeiro_minimalista.png"
-                alt="Roupeiro minimalista por medida"
+                alt="Roupeiro minimalista por medida em Coimbra"
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
@@ -129,10 +140,10 @@ export default function RoupeirosPage() {
               </h2>
 
               <p className="mt-4 text-sm leading-7 text-neutral-600 md:text-base">
-                Um roupeiro não deve apenas guardar. Deve organizar, simplificar
-                e integrar-se com elegância no ambiente. Por isso, criamos
-                soluções à medida com foco em harmonia visual, capacidade e
-                conforto de utilização.
+                Um roupeiro por medida não deve apenas guardar. Deve organizar,
+                simplificar e integrar-se com elegância no ambiente. Por isso,
+                criamos soluções à medida com foco em harmonia visual,
+                capacidade e conforto de utilização.
               </p>
             </div>
 
@@ -198,7 +209,7 @@ export default function RoupeirosPage() {
                 <div className="relative h-[320px] md:h-full md:min-h-[420px]">
                   <ImageLightbox
                     src="/images/roupeiros/Planeamento_rigoroso_roupeiro.png"
-                    alt="Planeamento rigoroso de roupeiro por medida"
+                    alt="Planeamento rigoroso de roupeiro por medida em Coimbra"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                   />
@@ -218,9 +229,10 @@ export default function RoupeirosPage() {
                 </h2>
 
                 <p className="mt-4 text-sm leading-7 text-neutral-600 md:text-base">
-                  Cada projeto de roupeiro é desenvolvido com atenção ao uso
-                  diário, à ergonomia e ao detalhe construtivo, garantindo uma
-                  solução elegante, prática e duradoura.
+                  Cada projeto de roupeiro por medida é desenvolvido com atenção
+                  ao uso diário, à ergonomia e ao detalhe construtivo,
+                  garantindo uma solução elegante, prática e duradoura para o
+                  seu espaço em Coimbra.
                 </p>
 
                 <div className="mt-8 space-y-4">
@@ -249,7 +261,7 @@ export default function RoupeirosPage() {
         <section className="mx-auto max-w-[1200px] px-6 pb-16 md:px-8 md:pb-24">
           <div className="rounded-[28px] border border-[#d9cfbf] bg-[#231d18] px-8 py-10 text-center shadow-[0_20px_60px_rgba(0,0,0,0.08)] md:px-12 md:py-14">
             <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#d5b57a]">
-              Projeto de roupeiro
+              Projeto de roupeiro em Coimbra
             </span>
 
             <h2 className="mx-auto mt-4 max-w-[760px] font-serif text-3xl leading-tight text-[#f5e8cf] md:text-5xl">
@@ -257,8 +269,9 @@ export default function RoupeirosPage() {
             </h2>
 
             <p className="mx-auto mt-4 max-w-[650px] text-sm leading-7 text-[#d8cec2] md:text-base">
-              Partilhe connosco o que procura. Criamos roupeiros por medida com
-              um olhar premium, funcional e totalmente personalizado.
+              Partilhe connosco o que procura. Criamos roupeiros por medida em
+              Coimbra com um olhar premium, funcional e totalmente
+              personalizado.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
