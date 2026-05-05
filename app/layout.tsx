@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import Header from "@/app/components/layout/Header";
 import Footer from "@/app/components/layout/Footer";
 
@@ -68,9 +69,14 @@ export default function RootLayout({
             __html: JSON.stringify(localBusinessJsonLd),
           }}
         />
+
         <Header />
         <main>{children}</main>
         <Footer />
+
+        {process.env.NEXT_PUBLIC_GA_ID ? (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        ) : null}
       </body>
     </html>
   );
