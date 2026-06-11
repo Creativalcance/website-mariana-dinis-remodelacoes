@@ -19,6 +19,11 @@ type ContactFormState = {
   mensagem: string;
 };
 
+type ProcessStep = {
+  title: string;
+  description: string;
+};
+
 const initialFormState: ContactFormState = {
   nome: "",
   email: "",
@@ -45,10 +50,33 @@ const contactItems: ContactItem[] = [
   },
 ];
 
+const processSteps: ProcessStep[] = [
+  {
+    title: "Projeto",
+    description:
+      "Compreendemos o espaço, o objetivo da remodelação e a solução estética e funcional pretendida.",
+  },
+  {
+    title: "Planeamento",
+    description:
+      "Definimos materiais, prioridades, prazos e a organização necessária para avançar para obra.",
+  },
+  {
+    title: "Execução da obra",
+    description:
+      "Coordenamos e acompanhamos os trabalhos em obra para garantir rigor, qualidade e coerência.",
+  },
+  {
+    title: "Entrega final",
+    description:
+      "Finalizamos a intervenção com atenção ao detalhe, deixando o espaço pronto a ser vivido.",
+  },
+];
+
 const workingSteps = [
-  "Partilhe connosco a sua ideia, a localização em Coimbra ou região e as necessidades do espaço.",
-  "Analisamos o projeto e definimos a melhor abordagem para remodelações, cozinhas por medida, roupeiros ou interiores.",
-  "Apresentamos uma proposta personalizada, alinhada com o objetivo pretendido.",
+  "Partilhe connosco a sua ideia, a localização em Coimbra ou região e o tipo de intervenção que pretende realizar.",
+  "Analisamos o espaço, definimos a melhor abordagem e alinhamos projeto, materiais, prazos e execução dos trabalhos.",
+  "Apresentamos uma proposta personalizada para acompanhar a remodelação desde o projeto até à obra e entrega final.",
 ];
 
 export default function ContactosPage() {
@@ -114,22 +142,22 @@ export default function ContactosPage() {
             <div className="flex items-center px-8 py-10 md:px-12 lg:px-16">
               <div className="max-w-[520px]">
                 <span className="inline-flex rounded-full border border-[#c9a96a]/40 px-4 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-[#d5b57a]">
-                  Contactos em Coimbra
+                  Projeto • Obra • Entrega final
                 </span>
 
                 <h1 className="mt-6 font-serif text-4xl leading-[1.05] text-[#f5e8cf] md:text-6xl">
                   Fale connosco
                   <br />
-                  sobre o seu projeto
+                  sobre a sua
                   <br />
-                  em Coimbra
+                  remodelação
                 </h1>
 
                 <p className="mt-5 max-w-[470px] text-sm leading-7 text-[#d9d0c5] md:text-base">
-                  Estamos disponíveis para ouvir a sua ideia, compreender as
-                  necessidades do espaço e desenvolver uma solução elegante para
-                  remodelações em Coimbra, cozinhas por medida, roupeiros por
-                  medida e interiores premium.
+                  Desenvolvemos e acompanhamos remodelações em Coimbra desde o
+                  projeto inicial até à execução da obra e entrega final. Se
+                  procura uma solução completa para transformar o seu espaço,
+                  fale connosco.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
@@ -160,10 +188,64 @@ export default function ContactosPage() {
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(32,26,22,0.12)_0%,rgba(32,26,22,0.02)_45%,rgba(32,26,22,0.18)_100%)]" />
+
+              <div className="absolute bottom-6 left-6 right-6 rounded-[22px] border border-white/15 bg-[rgba(24,19,16,0.72)] p-5 backdrop-blur-md md:left-8 md:right-8">
+                <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#d5b57a]">
+                  Solução completa
+                </p>
+                <p className="mt-2 text-sm leading-7 text-[#f5e8cf]">
+                  Projeto, coordenação da obra, execução dos trabalhos e entrega
+                  final num processo acompanhado.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      <Reveal>
+        <section className="mx-auto max-w-[1200px] px-6 pb-12 md:px-8 md:pb-16">
+          <div className="rounded-[28px] border border-[#d9cfbf] bg-[#231d18] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.08)] md:p-8">
+            <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+              <div>
+                <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#d5b57a]">
+                  Do projeto à obra
+                </span>
+
+                <h2 className="mt-4 font-serif text-3xl leading-tight text-[#f5e8cf] md:text-4xl">
+                  Uma solução completa para remodelar sem complicações
+                </h2>
+
+                <p className="mt-4 text-sm leading-7 text-[#d8cec2] md:text-base">
+                  Não tratamos apenas do conceito. Acompanhamos o processo de
+                  remodelação, coordenamos os trabalhos e asseguramos que o
+                  resultado final corresponde ao projeto definido.
+                </p>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                {processSteps.map((step, index) => (
+                  <Reveal key={step.title} delay={index * 100}>
+                    <article className="rounded-[22px] border border-white/10 bg-white/[0.06] p-5 backdrop-blur-sm">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d5b57a]/50 text-sm font-medium text-[#d5b57a]">
+                        {index + 1}
+                      </div>
+
+                      <h3 className="mt-4 text-lg font-medium text-[#f5e8cf]">
+                        {step.title}
+                      </h3>
+
+                      <p className="mt-2 text-sm leading-7 text-[#d8cec2]">
+                        {step.description}
+                      </p>
+                    </article>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      </Reveal>
 
       <Reveal>
         <section className="mx-auto max-w-[1200px] px-6 py-12 md:px-8 md:py-16">
@@ -175,7 +257,7 @@ export default function ContactosPage() {
                 </span>
 
                 <h2 className="mt-4 font-serif text-3xl leading-tight text-[#2c241e]">
-                  Fale connosco de forma simples e direta em Coimbra
+                  Fale connosco sobre o projeto e a execução da obra
                 </h2>
 
                 <div className="mt-8 space-y-4">
@@ -218,7 +300,8 @@ export default function ContactosPage() {
                 <p className="mt-4 text-sm leading-7 text-neutral-600 md:text-base">
                   Preencha os dados abaixo e entraremos em contacto consigo para
                   falar sobre o seu projeto de remodelação, cozinha por medida,
-                  roupeiro por medida ou interiores em Coimbra.
+                  roupeiro por medida ou interiores em Coimbra, incluindo a
+                  execução dos trabalhos e acompanhamento até à entrega final.
                 </p>
 
                 <form onSubmit={handleSubmit} className="mt-8 space-y-5">
@@ -298,7 +381,7 @@ export default function ContactosPage() {
                       onChange={handleChange}
                       disabled={isSubmitting}
                       className="min-h-[52px] w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b] disabled:cursor-not-allowed disabled:opacity-70"
-                      placeholder="Ex.: Remodelação de cozinha em Coimbra"
+                      placeholder="Ex.: Remodelação completa em Coimbra"
                     />
                   </div>
 
@@ -318,7 +401,7 @@ export default function ContactosPage() {
                       required
                       disabled={isSubmitting}
                       className="w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 py-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b] disabled:cursor-not-allowed disabled:opacity-70"
-                      placeholder="Descreva brevemente o seu projeto, a localização e o tipo de intervenção pretendida"
+                      placeholder="Descreva brevemente o espaço, a localização, o tipo de remodelação pretendida e se procura acompanhamento desde o projeto até à execução da obra"
                     />
                   </div>
 
@@ -361,13 +444,13 @@ export default function ContactosPage() {
                   </span>
 
                   <h2 className="mt-4 font-serif text-3xl leading-tight text-[#2c241e] md:text-4xl">
-                    Um processo próximo, claro e orientado ao detalhe
+                    Um processo próximo, claro e orientado à execução
                   </h2>
 
                   <p className="mt-4 text-sm leading-7 text-neutral-600 md:text-base">
                     Acreditamos numa relação de proximidade com cada cliente em
-                    Coimbra, desde o primeiro contacto até à definição da melhor
-                    solução para o espaço.
+                    Coimbra, desde o primeiro contacto e definição do projeto até
+                    à coordenação dos trabalhos em obra e entrega final.
                   </p>
                 </div>
               </Reveal>

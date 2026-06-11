@@ -14,6 +14,11 @@ type BudgetFormState = {
   mensagem: string;
 };
 
+type ProcessStep = {
+  title: string;
+  description: string;
+};
+
 const initialState: BudgetFormState = {
   nome: "",
   email: "",
@@ -23,7 +28,36 @@ const initialState: BudgetFormState = {
   mensagem: "",
 };
 
-const projectTypes = ["Cozinha", "Roupeiro", "Remodelação total", "Outro"];
+const projectTypes = [
+  "Remodelação completa",
+  "Cozinha",
+  "Roupeiro",
+  "Interiores",
+  "Outro",
+];
+
+const processSteps: ProcessStep[] = [
+  {
+    title: "Projeto",
+    description:
+      "Analisamos o espaço, os objetivos e a solução estética e funcional pretendida.",
+  },
+  {
+    title: "Planeamento",
+    description:
+      "Definimos materiais, prioridades, prazos e organização dos trabalhos.",
+  },
+  {
+    title: "Execução da obra",
+    description:
+      "Coordenamos e acompanhamos a intervenção para garantir rigor e qualidade.",
+  },
+  {
+    title: "Entrega final",
+    description:
+      "Finalizamos a remodelação com atenção ao detalhe, pronta a ser utilizada.",
+  },
+];
 
 export default function OrcamentoPage() {
   const [form, setForm] = useState<BudgetFormState>(initialState);
@@ -77,22 +111,21 @@ export default function OrcamentoPage() {
             <div className="flex items-center px-8 py-10 md:px-12 lg:px-16">
               <div className="max-w-[520px]">
                 <span className="inline-flex rounded-full border border-[#c9a96a]/40 px-4 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-[#d5b57a]">
-                  Pedir orçamento em Coimbra
+                  Projeto • Obra • Entrega Final
                 </span>
 
                 <h1 className="mt-6 font-serif text-4xl leading-[1.05] text-[#f5e8cf] md:text-6xl">
-                  Remodelações,
+                  Remodelações completas
                   <br />
-                  cozinhas e interiores
+                  em Coimbra,
                   <br />
-                  em Coimbra
+                  do projeto à obra
                 </h1>
 
                 <p className="mt-5 max-w-[470px] text-sm leading-7 text-[#d9d0c5] md:text-base">
-                  Peça um orçamento personalizado para remodelações em Coimbra,
-                  cozinhas por medida, roupeiros por medida e projetos de
-                  interiores premium. Partilhe connosco a localização, o tipo de
-                  espaço e os principais detalhes do seu projeto.
+                  Peça um orçamento para uma remodelação completa em Coimbra.
+                  Desenvolvemos o projeto, planeamos a intervenção, coordenamos a
+                  execução da obra e acompanhamos o processo até à entrega final.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
@@ -116,17 +149,72 @@ export default function OrcamentoPage() {
             <div className="relative min-h-[320px] overflow-hidden">
               <Image
                 src="/images/orcamento/Cozinha_coral.png"
-                alt="Cozinha por medida premium em Coimbra para projeto de remodelação"
+                alt="Cozinha por medida em Coimbra integrada em remodelação com execução de obra"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(32,26,22,0.12)_0%,rgba(32,26,22,0.02)_45%,rgba(32,26,22,0.18)_100%)]" />
+
+              <div className="absolute bottom-6 left-6 right-6 rounded-[22px] border border-white/15 bg-[rgba(24,19,16,0.72)] p-5 backdrop-blur-md md:left-8 md:right-8">
+                <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#d5b57a]">
+                  Solução completa
+                </p>
+                <p className="mt-2 text-sm leading-7 text-[#f5e8cf]">
+                  Projeto, coordenação da obra, execução dos trabalhos e entrega
+                  final num processo acompanhado.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      <Reveal>
+        <section className="mx-auto max-w-[1200px] px-6 pb-12 md:px-8 md:pb-16">
+          <div className="rounded-[28px] border border-[#d9cfbf] bg-[#231d18] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.08)] md:p-8">
+            <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+              <div>
+                <span className="text-[11px] font-medium uppercase tracking-[0.22em] text-[#d5b57a]">
+                  Do projeto à execução
+                </span>
+
+                <h2 className="mt-4 font-serif text-3xl leading-tight text-[#f5e8cf] md:text-4xl">
+                  Um único parceiro para todo o processo de remodelação
+                </h2>
+
+                <p className="mt-4 text-sm leading-7 text-[#d8cec2] md:text-base">
+                  Não fazemos apenas o projeto. Acompanhamos a remodelação desde
+                  o estudo inicial até à execução dos trabalhos em obra,
+                  assegurando coerência entre a ideia, os materiais e o resultado
+                  final.
+                </p>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                {processSteps.map((step, index) => (
+                  <Reveal key={step.title} delay={index * 100}>
+                    <article className="rounded-[22px] border border-white/10 bg-white/[0.06] p-5 backdrop-blur-sm">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d5b57a]/50 text-sm font-medium text-[#d5b57a]">
+                        {index + 1}
+                      </div>
+
+                      <h3 className="mt-4 text-lg font-medium text-[#f5e8cf]">
+                        {step.title}
+                      </h3>
+
+                      <p className="mt-2 text-sm leading-7 text-[#d8cec2]">
+                        {step.description}
+                      </p>
+                    </article>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      </Reveal>
 
       <Reveal>
         <section className="mx-auto max-w-[1200px] px-6 pb-16 md:px-8 md:pb-24">
@@ -138,14 +226,14 @@ export default function OrcamentoPage() {
                 </span>
 
                 <h2 className="mt-4 font-serif text-3xl leading-tight text-[#2c241e]">
-                  Um pedido simples para remodelações e interiores em Coimbra
+                  Como transformamos o seu projeto em obra executada
                 </h2>
 
                 <div className="mt-8 space-y-4">
                   {[
-                    "Indique se pretende uma cozinha por medida, roupeiro por medida, remodelação total ou outro projeto.",
-                    "Descreva os detalhes essenciais, o estilo pretendido e a localização do imóvel em Coimbra ou região.",
-                    "Entraremos em contacto para compreender melhor o espaço e preparar uma proposta ajustada ao seu projeto.",
+                    "Indique se pretende uma remodelação completa, cozinha por medida, roupeiro, interiores ou outro tipo de intervenção.",
+                    "Descreva os detalhes essenciais, o estilo pretendido, a localização do imóvel e o objetivo da obra.",
+                    "Entraremos em contacto para compreender o espaço e preparar uma proposta ajustada ao projeto e à execução dos trabalhos.",
                   ].map((step, index) => (
                     <Reveal key={step} delay={index * 120}>
                       <div className="flex items-start gap-4 rounded-[18px] bg-[#f7f3ec] px-5 py-4">
@@ -169,8 +257,20 @@ export default function OrcamentoPage() {
                 </span>
 
                 <h2 className="mt-4 font-serif text-3xl leading-tight text-[#2c241e]">
-                  Peça uma proposta personalizada para o seu projeto
+                  Peça uma proposta para projeto e execução
                 </h2>
+
+                <div className="mt-8 rounded-[20px] border border-[#d9bf8f] bg-[#f7f3ec] p-5">
+                  <h3 className="font-serif text-xl text-[#2c241e]">
+                    Projeto + Execução da obra
+                  </h3>
+
+                  <p className="mt-2 text-sm leading-7 text-neutral-600">
+                    Este pedido permite-nos compreender o seu projeto e preparar
+                    uma proposta para acompanhamento completo, desde o estudo
+                    inicial até à execução da remodelação e entrega final.
+                  </p>
+                </div>
 
                 <form onSubmit={handleSubmit} className="mt-8 space-y-5">
                   <div className="grid gap-5 md:grid-cols-2">
@@ -290,7 +390,7 @@ export default function OrcamentoPage() {
                       onChange={handleChange}
                       required
                       className="w-full rounded-[16px] border border-[#ded3c2] bg-[#fdfcf9] px-4 py-4 text-sm text-neutral-900 outline-none transition focus:border-[#c8a96b]"
-                      placeholder="Descreva se pretende uma remodelação, cozinha por medida, roupeiro por medida ou projeto de interiores, incluindo dimensões aproximadas, estilo desejado e zona do imóvel"
+                      placeholder="Descreva o espaço, o tipo de remodelação pretendida, a localização, o estado atual e se procura acompanhamento desde o projeto até à execução da obra"
                     />
                   </div>
 
