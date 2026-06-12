@@ -41,7 +41,7 @@ const localBusinessJsonLd = {
   image: "https://marianadinis.com/logo.png",
   "@id": "https://marianadinis.com",
   url: "https://marianadinis.com",
-  telephone: "+351963582631",
+  telephone: "+351963582819",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Rua dos Combatentes da Grande Guerra nº 14 loja 5",

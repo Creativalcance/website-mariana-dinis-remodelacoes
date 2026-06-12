@@ -35,8 +35,8 @@ const initialFormState: ContactFormState = {
 const contactItems: ContactItem[] = [
   {
     label: "Telefone",
-    value: "+351 963 582 631",
-    href: "tel:+351963582631",
+    value: "+351 963 582 819",
+    href: "tel:+963582819",
   },
   {
     label: "Email",
@@ -169,7 +169,7 @@ export default function ContactosPage() {
                   </Link>
 
                   <Link
-                    href="tel:+351963582631"
+                    href="tel:+351963582819"
                     className="inline-flex min-h-[48px] items-center justify-center rounded-full border border-[#d5b57a]/50 px-6 text-sm font-medium text-[#f5e8cf] transition hover:bg-white/5"
                   >
                     Ligar agora
