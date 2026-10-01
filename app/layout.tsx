@@ -5,6 +5,7 @@ import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Header from "@/app/components/layout/Header";
 import Footer from "@/app/components/layout/Footer";
+import MetaPixel from "@/app/components/MetaPixel";
 
 export const metadata: Metadata = {
   title: {
@@ -76,6 +77,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <MetaPixel />
 
         {process.env.NEXT_PUBLIC_GA_ID ? (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
